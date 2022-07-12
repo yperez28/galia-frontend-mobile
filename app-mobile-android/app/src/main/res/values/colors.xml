@@ -1,11 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="fucsia">#BA2C75</color>
-    <color name="rosado_claro">#EFB0DF</color>
-    <color name="azul">#074EE8</color>
-    <color name="gris_clarito">#BDBDBD</color>
-    <color name="gris_claro">#4F4F4F</color>
-    <color name="gris_oscuro">#262626</color>
+
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFF</color>
+    <color name="backgroundColor">#FDFDFD</color>
+    <color name="main_titles_login">#4F4F4F</color>
+    <color name="login_titles">#262626</color>
+    <color name="login_button">#BA2C75</color>
+    <color name="hyperlink">#074EE8</color>
+
+    <!-- Figma Color Styles -->
+    <!-- Fuchsia -->
+    <color name="fuchsia_100">#EF5DA8</color>
+    <color name="fuchsia_80">#F178B6</color>
+    <color name="fuchsia_60">#FCDDEC</color>
+
+    <!-- Iris -->
+    <color name="iris_100">#5D5FEF</color>
+    <color name="iris_80">#7879F1</color>
+    <color name="iris_60">#A5A6F6</color>
+
+    <!-- Grays -->
+    <color name="gris_1">#333333</color>
+    <color name="gris_2">#4F4F4F</color>
+    <color name="gris_3">#BDBDBD</color>
+    <color name="gris_4">#F2F2F2</color>
+
+    <!-- Traffic Lights -->
+    <color name="rojo_frio">#9D2234</color>
+    <color name="amarillo">#F5CB5E</color>
+    <color name="verde_calido">#808E3B</color>
+
 </resources>

@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">galia-app-mobile</string>
+    <string name="show_password">show password</string>
+    <string name="username_hint">Ingrese su nombre de usuario</string>
+    <string name="top_pink_vector">top pink vector</string>
+    <string name="bottom_pink_vector">bottom_pink_vector</string>
+    <string name="get_into">Ingresar</string>
+    <string name="forgot_password">¿Olvidó su contraseña?</string>
+    <string name="log_in">Iniciar sesión</string>
+    <string name="password_hint">Ingrese su contraseña</string>
+    <string name="password_tittle">Contraseña</string>
+    <string name="username_tittle">Usuario</string>
 </resources>
