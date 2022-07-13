@@ -6,17 +6,46 @@
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
 
-    <TextView
-        android:id="@+id/txt_ingresar2"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_rounded_toolbar"
+        android:elevation="4dp"
+        app:layout_constraintBottom_toTopOf="@id/toolbar_bottom"
+        app:layout_constraintLeft_toRightOf="@id/toolbar_left"
+        app:layout_constraintRight_toLeftOf="@id/toolbar_right"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_top"
+        app:layout_constraintVertical_bias="0.0"
+        app:logo="@drawable/ic_menu_vector"
+        app:menu="@menu/menu" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/toolbar_bottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-black"
-        android:text="HOMEPAGE"
-        android:textColor="@color/gris_claro"
-        android:textSize="34sp"
-        app:drawableTint="#0C0C0C"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.08" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/toolbar_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.0" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/toolbar_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.96" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/toolbar_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.04" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
