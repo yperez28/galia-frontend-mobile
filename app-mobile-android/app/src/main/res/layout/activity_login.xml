@@ -10,8 +10,8 @@
 
     <ImageView
         android:id="@+id/top_vector_login"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="411dp"
+        android:layout_height="90dp"
         android:contentDescription="@string/top_pink_vector"
         android:src="@drawable/ic_top_vector_login"
         app:layout_constraintBottom_toBottomOf="@id/bottom_top_vector_login"
@@ -30,9 +30,7 @@
         app:layout_constraintBottom_toBottomOf="@id/bottom_text_get_into"
         app:layout_constraintLeft_toRightOf="@id/margin_left_login"
         app:layout_constraintRight_toLeftOf="@id/right_text_get_into"
-        app:layout_constraintTop_toTopOf="@id/top_text_get_into"
-        tools:layout_editor_absoluteX="25dp"
-        tools:layout_editor_absoluteY="169dp" />
+        app:layout_constraintTop_toTopOf="@id/top_text_get_into" />
 
     <TextView
         android:id="@+id/username_title"
@@ -104,7 +102,8 @@
         app:layout_constraintLeft_toRightOf="@id/show_password_left"
         app:layout_constraintRight_toLeftOf="@id/show_password_right"
         app:layout_constraintTop_toBottomOf="@id/show_password_top"
-        app:srcCompat="@drawable/ic_show_password" />
+        app:srcCompat="@drawable/ic_show_password"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/login_button"
@@ -173,7 +172,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.44" />
+        app:layout_constraintGuide_percent="0.44049248" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/top_user_input_text"
@@ -243,7 +242,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.12" />
+        app:layout_constraintGuide_begin="89dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/top_bottom_vector"
