@@ -25,6 +25,8 @@
     <color name="gris_2">#4F4F4F</color>
     <color name="gris_3">#BDBDBD</color>
     <color name="gris_4">#F2F2F2</color>
+    <color name="gris_5">#828282</color>
+    <color name="gris_6">#E5E5E5</color>
 
     <!-- Traffic Lights -->
     <color name="rojo_frio">#9D2234</color>
