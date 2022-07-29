@@ -10,4 +10,5 @@
     <string name="password_hint">Ingrese su contraseña</string>
     <string name="password_tittle">Contraseña</string>
     <string name="username_tittle">Usuario</string>
+    <string name="planification">Planificación</string>
 </resources>
