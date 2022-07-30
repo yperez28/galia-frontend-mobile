@@ -56,6 +56,8 @@
         android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:textColorHint="@color/gris_3"
+        android:textCursorDrawable="@drawable/ic_cursor"
+        android:textColorHighlight="@color/iris_60"
         app:layout_constraintBottom_toTopOf="@+id/bottom_user_input_text"
         app:layout_constraintLeft_toRightOf="@id/margin_left_login"
         app:layout_constraintRight_toLeftOf="@id/margin_right_login"
@@ -69,41 +71,37 @@
         android:fontFamily="@font/inter_bold"
         android:text="@string/password_tittle"
         android:textColor="@color/main_titles_login"
-        app:layout_constraintBottom_toTopOf="@id/password"
+        app:layout_constraintBottom_toTopOf="@id/password_container"
         app:layout_constraintLeft_toRightOf="@id/margin_left_login"
         app:layout_constraintRight_toLeftOf="@id/right_text_password"
-        app:layout_constraintTop_toBottomOf="@id/top_password_text"
-        tools:layout_editor_absoluteX="20dp"
-        tools:layout_editor_absoluteY="334dp" />
+        app:layout_constraintTop_toBottomOf="@id/top_password_text" />
 
-    <EditText
-        android:id="@+id/password"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/password_container"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:inputType="textPassword"
-        android:hint="@string/password_hint"
-        android:textSize="2.6mm"
-        android:background="@drawable/ic_rounded_edittext"
-        android:fontFamily="@font/inter_regular"
-        android:importantForAutofill="no"
-        android:textColorHint="@color/gris_3"
+        app:hintEnabled="false"
+        app:endIconMode="password_toggle"
+        app:endIconTint="@color/gris_3"
         app:layout_constraintBottom_toTopOf="@+id/bottom_password_input_text"
         app:layout_constraintLeft_toRightOf="@id/margin_left_login"
         app:layout_constraintRight_toLeftOf="@id/margin_right_login"
-        app:layout_constraintTop_toBottomOf="@+id/top_password_input_text" />
+        app:layout_constraintTop_toBottomOf="@+id/top_password_input_text" >
 
-    <ImageButton
-        android:id="@+id/forgot_password_button"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:backgroundTint="@color/backgroundColor"
-        android:contentDescription="@string/show_password"
-        app:layout_constraintBottom_toTopOf="@id/show_password_bottom"
-        app:layout_constraintLeft_toRightOf="@id/show_password_left"
-        app:layout_constraintRight_toLeftOf="@id/show_password_right"
-        app:layout_constraintTop_toBottomOf="@id/show_password_top"
-        app:srcCompat="@drawable/ic_show_password"
-        tools:ignore="TouchTargetSizeCheck" />
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textPassword"
+            android:hint="@string/password_hint"
+            android:textColorHighlight="@color/iris_60"
+            android:textSize="2.6mm"
+            android:textCursorDrawable="@drawable/ic_cursor"
+            android:background="@drawable/ic_rounded_edittext"
+            android:fontFamily="@font/inter_regular"
+            android:importantForAutofill="no"
+            android:textColorHint="@color/gris_3" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/login_button"
@@ -117,11 +115,9 @@
         android:textAllCaps="false"
         android:textColor="@color/backgroundColor"
         app:layout_constraintBottom_toTopOf="@+id/bottom_login_button"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toRightOf="@id/login_button_left"
         app:layout_constraintRight_toLeftOf="@id/login_button_right"
-        app:layout_constraintTop_toBottomOf="@+id/top_login_button"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/top_login_button" />
 
     <TextView
         android:id="@+id/forget_password_link"
@@ -138,7 +134,6 @@
         app:layout_constraintRight_toLeftOf="@id/right_forgot_password"
         app:layout_constraintTop_toTopOf="@+id/top_forgot_password" />
 
-    <!-- Guidelines to set components and make the app responsive -->
     <ImageView
         android:id="@+id/bottom_vector_login"
         android:layout_width="0dp"
@@ -153,6 +148,7 @@
         app:layout_constraintTop_toTopOf="@+id/top_bottom_vector"
         app:layout_constraintVertical_bias="1.0" />
 
+    <!-- Guidelines to set components and make the app responsive -->
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/top_password_text"
         android:layout_width="wrap_content"
@@ -242,7 +238,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="89dp" />
+        app:layout_constraintGuide_percent="0.1390625" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/top_bottom_vector"

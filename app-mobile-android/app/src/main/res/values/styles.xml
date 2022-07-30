@@ -1,8 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="floating_button_label_style">
-        <item name="android:background">@drawable/floating_button_label</item>
+        <item name="android:background">@drawable/ic_floating_button_label</item>
         <item name="android:textColor">@color/gris_5</item>
         <item name="android:fontFamily">@font/inter_semibold</item>
     </style>
+
+    <style name="DayTextAppearance" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textColor">@color/day_calendar_colors</item>
+        <item name="fontFamily">@font/inter_regular</item>
+        <item name="android:textSize">14dp</item>
+    </style>
+
+    <style name="HeaderTextAppearance" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textColor">@color/backgroundColor</item>
+        <item name="fontFamily">@font/inter_semibold</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="WeekDayAppearance" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textColor">@color/day_calendar_colors</item>
+        <item name="fontFamily">@font/inter_bold</item>
+        <item name="android:autoSizeTextType">uniform</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
 </resources>
