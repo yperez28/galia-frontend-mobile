@@ -7,24 +7,29 @@
 
     <fragment
         android:id="@+id/nav_ppe"
-        android:name="com.example.myapplication.ui.home.HomeFragment"
-        android:label="Home"
+
+        android:name="com.pnp.galia_app_mobile.ui.home.HomeFragment"
+        android:label="menu_home"
+
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.example.myapplication.ui.gallery.GalleryFragment"
-        android:label="Gallery"
+
+        android:name="com.pnp.galia_app_mobile.ui.gallery.GalleryFragment"
+        android:label="menu_gallery"
+
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="com.example.myapplication.ui.slideshow.SlideshowFragment"
-        android:label="Slideshow"
+        android:name="com.pnp.galia_app_mobile.ui.slideshow.SlideshowFragment"
+        android:label="menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
     <fragment
         android:id="@+id/cerrar"
-        android:name="com.example.myapplication.Cerrar"
+        android:name="com.pnp.galia_app_mobile.Cerrar"
         android:label="fragment_cerrar"
         tools:layout="@layout/fragment_cerrar" />
+
 </navigation>

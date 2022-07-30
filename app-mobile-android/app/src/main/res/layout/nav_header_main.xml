@@ -16,7 +16,8 @@
         android:layout_centerVertical="true"
         android:layout_marginStart="32dp"
         android:background="@drawable/ic_circle"
-        android:contentDescription="nav_header_desc"
+        android:contentDescription="ProfilePicture"
+
         app:srcCompat="@mipmap/ic_launcher_round"
         />
 

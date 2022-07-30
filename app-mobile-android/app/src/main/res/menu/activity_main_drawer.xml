@@ -6,19 +6,22 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_ppe"
-            android:icon="@drawable/ic_action_calendar"
-            android:title="Planificación" />
+
+            android:icon="@drawable/ic_agenda"
+            android:title="Planificación"
+            />
         <item
             android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_action_person"
+            android:icon="@drawable/ic_profile"
             android:title="Pacientes" />
         <item
             android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_action_settings"
+            android:icon="@drawable/ic_configuration"
             android:title="Configuración" />
         <item
             android:id="@+id/cerrar"
-            android:icon="@drawable/ic_action_logout"
+            android:icon="@drawable/ic_out"
+
             android:title="Cerrar sesión" />
     </group>
 </menu>
