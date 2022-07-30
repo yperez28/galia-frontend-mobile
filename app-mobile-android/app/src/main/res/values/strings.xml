@@ -12,6 +12,7 @@
     <string name="username_tittle">Usuario</string>
     <string name="patient">Paciente:</string>
     <string name="mode">Modo:</string>
+    <string name="planification">Planificación</string>
 
     <string-array name="custom_weekdays">
         <item>LUN</item>
@@ -37,5 +38,4 @@
         <item>Noviembre de </item>
         <item>Diciembre de </item>
     </string-array>
-
 </resources>

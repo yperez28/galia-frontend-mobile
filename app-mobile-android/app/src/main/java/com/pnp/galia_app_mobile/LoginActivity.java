@@ -19,7 +19,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        btnLogin = (Button) findViewById(R.id.login_button);
+        btnLogin = findViewById(R.id.login_button);
         editTextUser = findViewById(R.id.username);
         editTextPassword = findViewById(R.id.password);
 

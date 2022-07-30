@@ -1,14 +1,17 @@
 package com.pnp.galia_app_mobile;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -27,6 +30,11 @@ public class HomeActivity extends AppCompatActivity {
     private TextView text_view_tracing;
     private TextView text_view_patient;
     private TextView text_view_task;
+    
+    private ImageView menuIcon;
+    private ImageView homeIcon;
+    private ImageView notificationsIcon;
+    private ImageView searchIcon;
 
     private boolean clicked = false;
 
@@ -50,6 +58,11 @@ public class HomeActivity extends AppCompatActivity {
         text_view_tracing = findViewById(R.id.text_view_tracing);
         text_view_patient = findViewById(R.id.text_view_patient);
         text_view_task = findViewById(R.id.text_view_task);
+        
+        menuIcon = findViewById(R.id.menu_icon);
+        homeIcon = findViewById(R.id.home_icon);
+        notificationsIcon = findViewById(R.id.notification_icon);
+        searchIcon = findViewById(R.id.search_icon);
 
         floating_button_main.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,8 +73,36 @@ public class HomeActivity extends AppCompatActivity {
                 clicked = !clicked;
             }
         });
-    }
+        
+        menuIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(HomeActivity.this,"MENU ICON CLICKED",Toast.LENGTH_SHORT).show();
+            }
+        });
 
+        homeIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(HomeActivity.this,"HOME ICON CLICKED",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        notificationsIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(HomeActivity.this,"NOTIFICATIONS ICON CLICKED",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        searchIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(HomeActivity.this,"SEARCH ICON CLICKED",Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    
     private void setVisibility(boolean clicked) {
         if (!clicked) {
             floating_button_appointment.setVisibility(View.VISIBLE);
@@ -137,11 +178,5 @@ public class HomeActivity extends AppCompatActivity {
             text_view_task.setAnimation(toBottomTitle);
             floating_button_main.setAnimation(rotateClose);
         }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu,menu);
-        return true;
     }
 }
