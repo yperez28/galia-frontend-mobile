@@ -10,5 +10,32 @@
     <string name="password_hint">Ingrese su contraseña</string>
     <string name="password_tittle">Contraseña</string>
     <string name="username_tittle">Usuario</string>
+    <string name="patient">Paciente:</string>
+    <string name="mode">Modo:</string>
     <string name="planification">Planificación</string>
+
+    <string-array name="custom_weekdays">
+        <item>LUN</item>
+        <item>MAR</item>
+        <item>MIÉ</item>
+        <item>JUE</item>
+        <item>VIE</item>
+        <item>SÁB</item>
+        <item>DOM</item>
+    </string-array>
+
+    <string-array name="custom_months">
+        <item>Enero de </item>
+        <item>Febrero de </item>
+        <item>Marzo de </item>
+        <item>Abril de </item>
+        <item>Mayo de </item>
+        <item>Junio de </item>
+        <item>Julio de </item>
+        <item>Agosto de </item>
+        <item>Septiembre de </item>
+        <item>Octubre de </item>
+        <item>Noviembre de </item>
+        <item>Diciembre de </item>
+    </string-array>
 </resources>
