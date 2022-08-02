@@ -4,9 +4,10 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFF</color>
     <color name="backgroundColor">#FDFDFD</color>
+    <color name="backgroundColorTwo">#F3F3F3</color>
     <color name="main_titles_login">#4F4F4F</color>
     <color name="login_titles">#262626</color>
-    <color name="login_button">#BA2C75</color>
+    <color name="og_fuchsia">#BA2C75</color>
     <color name="hyperlink">#074EE8</color>
 
     <!-- Figma Color Styles -->
@@ -16,6 +17,7 @@
     <color name="fuchsia_60">#FCDDEC</color>
 
     <!-- Iris -->
+    <color name="og_iris">#074EE8</color>
     <color name="iris_100">#5D5FEF</color>
     <color name="iris_80">#7879F1</color>
     <color name="iris_60">#A5A6F6</color>
@@ -26,7 +28,7 @@
     <color name="gris_3">#BDBDBD</color>
     <color name="gris_4">#F2F2F2</color>
     <color name="gris_5">#828282</color>
-    <color name="gris_6">#E5E5E5</color>
+    <color name="gris_6">#FDFDFD</color>
 
     <!-- Traffic Lights -->
     <color name="rojo_frio">#9D2234</color>
