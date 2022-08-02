@@ -8,7 +8,7 @@
     tools:context=".HomeActivity" >
 
     <include
-        app:layout_constraintBottom_toTopOf="@id/toolbar_bottom"
+        app:layout_constraintBottom_toTopOf="@id/bottom_toolbar"
         app:layout_constraintLeft_toRightOf="@id/left_toolbar"
         app:layout_constraintRight_toLeftOf="@id/right_toolbar"
         app:layout_constraintTop_toBottomOf="@id/top_toolbar"
@@ -16,27 +16,28 @@
 
     <TextView
         android:id="@+id/lbl_planification"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_alignParentTop="true"
         android:fontFamily="@font/inter_bold"
         android:text="@string/planification"
         android:textColor="@color/main_titles_login"
-        android:textSize="19sp"
+        android:autoSizeTextType="uniform"
         app:layout_constraintBottom_toBottomOf="@id/bottom_planification"
-        app:layout_constraintLeft_toRightOf="@id/left_toolbar"
+        app:layout_constraintLeft_toRightOf="@id/left_screen_margin"
+        app:layout_constraintRight_toLeftOf="@id/right_planification"
         app:layout_constraintTop_toTopOf="@id/top_planification" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview_tasks"
-        android:layout_width="370dp"
-        android:layout_height="30dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:cardBackgroundColor="@color/backgroundColor"
         app:cardCornerRadius="21.51dp"
         app:cardElevation="4dp"
         app:layout_constraintBottom_toTopOf="@id/bottom_cardview_tasks"
-        app:layout_constraintLeft_toRightOf="@id/left_toolbar"
-        app:layout_constraintRight_toLeftOf="@id/right_toolbar"
+        app:layout_constraintLeft_toRightOf="@id/left_screen_margin"
+        app:layout_constraintRight_toLeftOf="@id/right_screen_margin"
         app:layout_constraintTop_toBottomOf="@id/top_cardview_tasks">
 
         <LinearLayout
@@ -48,15 +49,26 @@
                 android:id="@+id/btn_tasks"
                 android:layout_width="185dp"
                 android:layout_height="wrap_content"
-                android:background="@drawable/ic_btn_tasks_selected"
+                android:background="@drawable/ic_btn_rounded_selected"
+                android:text="@string/tareas"
+                android:textAllCaps="false"
+                android:fontFamily="@font/inter_bold"
+                android:textSize="14.5sp"
+                android:textColor="@color/backgroundColor"
                 app:layout_constraintLeft_toRightOf="@id/left_toolbar"
+                app:layout_constraintRight_toLeftOf="@id/right_screen_margin"
                 tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
             <Button
                 android:id="@+id/btn_barriers"
-                android:layout_width="wrap_content"
+                android:layout_width="185dp"
                 android:layout_height="wrap_content"
-                android:background="@drawable/ic_btn_barriers_unselected"
+                android:text="@string/barreras"
+                android:textColor="@color/gris_5"
+                android:textAllCaps="false"
+                android:textSize="14.5sp"
+                android:fontFamily="@font/inter_bold"
+                android:background="@drawable/ic_btn_rounded_unselected"
                 app:layout_constraintLeft_toRightOf="@id/middle_screenview"
                 tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
@@ -64,8 +76,26 @@
 
     </androidx.cardview.widget.CardView>
 
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_cardview_barriers"
+        app:layout_constraintEnd_toStartOf="@+id/right_screen_margin"
+        app:layout_constraintStart_toStartOf="@+id/left_screen_margin"
+        app:layout_constraintTop_toTopOf="@id/top_cardview_barriers">
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragment_home_page"
+            android:name="com.pnp.galia_app_mobile.TasksListFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout="@layout/fragment_tasks_list" />
+
+    </LinearLayout>
+
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/toolbar_bottom"
+        android:id="@+id/bottom_toolbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -76,21 +106,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.0" />
+        app:layout_constraintGuide_percent="0.0013679891" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/right_toolbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.95" />
+        app:layout_constraintGuide_percent="1" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/left_toolbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.05" />
+        app:layout_constraintGuide_percent="0" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/top_planification"
@@ -104,7 +134,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.15" />
+        app:layout_constraintGuide_percent="0.13" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/right_planification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.34" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/left_screen_margin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/right_screen_margin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/middle_screenview"
@@ -118,15 +169,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.17" />
+        app:layout_constraintGuide_percent="0.145" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/bottom_cardview_tasks"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.21" />
+        app:layout_constraintGuide_percent="0.18" />
 
-    <include layout="@layout/activity_tasks" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/top_cardview_barriers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.195" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/bottom_cardview_barriers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.9987" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

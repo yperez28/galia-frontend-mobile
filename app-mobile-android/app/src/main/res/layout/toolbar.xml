@@ -42,10 +42,10 @@
         <ImageView
             android:id="@+id/search_icon"
             android:layout_width="wrap_content"
-            android:layout_marginEnd="10dp"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
             android:src="@drawable/ic_search_vector" />
 
     </RelativeLayout>
