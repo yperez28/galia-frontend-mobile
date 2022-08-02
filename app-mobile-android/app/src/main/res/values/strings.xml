@@ -13,6 +13,10 @@
     <string name="patient">Paciente:</string>
     <string name="mode">Modo:</string>
     <string name="planification">Planificación</string>
+    <string name="barreras">Barreras</string>
+    <string name="tareas">Tareas</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string-array name="custom_weekdays">
         <item>LUN</item>
