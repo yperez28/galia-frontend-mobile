@@ -1,379 +1,454 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/test"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="left"
+    android:fitsSystemWindows="true"
     android:background="@color/backgroundColorTwo"
-    tools:context=".HomeActivity">
-    
-    <include
-        app:layout_constraintBottom_toTopOf="@id/toolbar_bottom"
-        app:layout_constraintLeft_toRightOf="@id/left_toolbar"
-        app:layout_constraintRight_toLeftOf="@id/right_toolbar"
-        app:layout_constraintTop_toBottomOf="@id/top_toolbar"
-        layout="@layout/toolbar" />
+    tools:openDrawer="start">
 
-    <TextView
-        android:id="@+id/lbl_planification"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:fontFamily="@font/inter_bold"
-        android:text="@string/planification"
-        android:textColor="@color/main_titles_login"
-        android:textSize="19sp"
-        app:layout_constraintBottom_toBottomOf="@id/bottom_planification"
-        app:layout_constraintLeft_toRightOf="@id/left_toolbar"
-        app:layout_constraintTop_toTopOf="@id/top_planification" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardview_tasks"
-        android:layout_width="370dp"
-        android:layout_height="30dp"
-        app:cardBackgroundColor="@color/backgroundColor"
-        app:cardCornerRadius="21.51dp"
-        app:cardElevation="4dp"
-        app:layout_constraintBottom_toTopOf="@id/bottom_cardview_tasks"
-        app:layout_constraintLeft_toRightOf="@id/left_toolbar"
-        app:layout_constraintRight_toLeftOf="@id/right_toolbar"
-        app:layout_constraintTop_toBottomOf="@id/top_cardview_tasks">
+        <TextView
+            android:id="@+id/lbl_planification"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_alignParentTop="true"
+            android:fontFamily="@font/inter_bold"
+            android:text="@string/planification"
+            android:textColor="@color/gris_2"
+            android:textSize="19sp"
+            app:layout_constraintBottom_toBottomOf="@id/bottom_planification"
+            app:layout_constraintLeft_toRightOf="@id/left_toolbar"
+            app:layout_constraintTop_toTopOf="@id/top_planification"
+            app:layout_constraintRight_toLeftOf="@id/middle_screenview"/>
 
-        <LinearLayout
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardview_tasks"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:cardBackgroundColor="@color/backgroundColor"
+            app:cardCornerRadius="21.51dp"
+            app:cardElevation="4dp"
+            app:layout_constraintBottom_toTopOf="@id/bottom_cardview_tasks"
+            app:layout_constraintLeft_toRightOf="@id/left_toolbar"
+            app:layout_constraintRight_toLeftOf="@id/right_toolbar"
+            app:layout_constraintTop_toBottomOf="@id/top_cardview_tasks">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_tasks"
+                    android:layout_width="165dp"
+                    android:layout_height="wrap_content"
+                    android:text="Tareas"
+                    android:textSize="14sp"
+                    android:textAllCaps="false"
+                    android:textColor="@color/gris_6"
+                    android:fontFamily="@font/inter_bold"
+                    android:background="@drawable/ic_selected_rounded_button" />
+
+                <Button
+                    android:id="@+id/btn_barriers"
+                    android:layout_width="165dp"
+                    android:layout_height="wrap_content"
+                    android:text="Barreras"
+                    android:textSize="14sp"
+                    android:textAllCaps="false"
+                    android:textColor="@color/gris_5"
+                    android:fontFamily="@font/inter_bold"
+                    android:background="@android:color/transparent"
+                    app:layout_constraintLeft_toRightOf="@id/middle_screenview" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floating_button_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/og_fuchsia"
+            android:clickable="true"
+            android:elevation="0dp"
+            app:borderWidth="0dp"
+            app:layout_constraintBottom_toTopOf="@id/floating_button_bottom"
+            app:layout_constraintRight_toLeftOf="@id/floating_button_right"
+            app:srcCompat="@drawable/ic_open_floating_button" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floating_button_appointment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
+            android:backgroundTint="@color/iris_100"
+            android:clickable="true"
+            android:elevation="4dp"
+            android:visibility="invisible"
+            app:borderWidth="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/floating_button_main"
+            app:layout_constraintEnd_toEndOf="@+id/floating_button_main"
+            app:srcCompat="@drawable/ic_calendar" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floating_button_barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/iris_100"
+            android:clickable="true"
+            android:elevation="4dp"
+            android:visibility="invisible"
+            app:borderWidth="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/floating_button_appointment"
+            app:layout_constraintEnd_toEndOf="@+id/floating_button_appointment"
+            app:srcCompat="@drawable/ic_barrier" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floating_button_tracing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/iris_100"
+            android:clickable="true"
+            android:elevation="4dp"
+            android:visibility="invisible"
+            app:borderWidth="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/floating_button_barrier"
+            app:layout_constraintEnd_toEndOf="@+id/floating_button_barrier"
+            app:srcCompat="@drawable/ic_tracing" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floating_button_patient"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/iris_100"
+            android:clickable="true"
+            android:elevation="4dp"
+            android:visibility="invisible"
+            app:borderWidth="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/floating_button_tracing"
+            app:layout_constraintEnd_toEndOf="@+id/floating_button_tracing"
+            app:srcCompat="@drawable/ic_patient" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floating_button_task"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/iris_100"
+            android:clickable="true"
+            android:elevation="4dp"
+            android:visibility="invisible"
+            app:borderWidth="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/floating_button_patient"
+            app:layout_constraintEnd_toEndOf="@+id/floating_button_patient"
+            app:srcCompat="@drawable/ic_task" />
+
+        <TextView
+            android:id="@+id/text_view_appointment"
+            style="@style/floating_button_label_style"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:elevation="4dp"
+            android:text="Citas"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/appointment_title_bottom"
+            app:layout_constraintEnd_toStartOf="@+id/titles_floating_button_right"
+            app:layout_constraintStart_toStartOf="@+id/titles_floating_buttons_left"
+            app:layout_constraintTop_toTopOf="@+id/appointment_title_top" />
+
+        <TextView
+            android:id="@+id/text_view_barrier"
+            style="@style/floating_button_label_style"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:elevation="4dp"
+            android:text="Barrera"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/barrier_title_bottom"
+            app:layout_constraintEnd_toStartOf="@+id/titles_floating_button_right"
+            app:layout_constraintStart_toStartOf="@+id/titles_floating_buttons_left"
+            app:layout_constraintTop_toTopOf="@+id/barrier_title_top" />
+
+        <TextView
+            android:id="@+id/text_view_tracing"
+            style="@style/floating_button_label_style"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:elevation="4dp"
+            android:text="Seguimiento"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/tracing_title_bottom"
+            app:layout_constraintEnd_toStartOf="@+id/titles_floating_button_right"
+            app:layout_constraintStart_toStartOf="@+id/titles_floating_buttons_left"
+            app:layout_constraintTop_toTopOf="@+id/tracing_title_top" />
+
+        <TextView
+            android:id="@+id/text_view_patient"
+            style="@style/floating_button_label_style"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:elevation="4dp"
+            android:text="Paciente"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/patient_title_bottom"
+            app:layout_constraintEnd_toStartOf="@+id/titles_floating_button_right"
+            app:layout_constraintStart_toStartOf="@+id/titles_floating_buttons_left"
+            app:layout_constraintTop_toTopOf="@+id/patient_title_top" />
+
+        <TextView
+            android:id="@+id/text_view_task"
+            style="@style/floating_button_label_style"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:elevation="4dp"
+            android:text="Tarea"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/task_title_bottom"
+            app:layout_constraintEnd_toStartOf="@+id/titles_floating_button_right"
+            app:layout_constraintStart_toStartOf="@+id/titles_floating_buttons_left"
+            app:layout_constraintTop_toTopOf="@+id/task_title_top" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/toolbar_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.07" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/top_toolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.0" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/right_toolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/left_toolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/top_planification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.09" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/bottom_planification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.15" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/middle_screenview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/floating_button_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.96" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/floating_button_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.9" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/titles_floating_buttons_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.50" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/titles_floating_button_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.88" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/appointment_title_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.709" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/appointment_title_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.758" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/barrier_title_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.609" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/barrier_title_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.658" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/tracing_title_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.51" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/tracing_title_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.559" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/patient_title_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.405" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/patient_title_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.454" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/task_title_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.305" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/task_title_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.354" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/top_cardview_tasks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.16" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/bottom_cardview_tasks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.21" />
+
+        <include layout="@layout/activity_tasks" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/home_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".HomeActivity">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_height="45dp"
+            android:background="@color/backgroundColor"
+            android:elevation="6dp">
 
-            <Button
-                android:id="@+id/btn_tasks"
-                android:layout_width="185dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/ic_btn_tasks_selected"
-                app:layout_constraintLeft_toRightOf="@id/left_toolbar"
-                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+            <RelativeLayout
+                android:id="@+id/option_icons_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <Button
-                android:id="@+id/btn_barriers"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/ic_btn_barriers_unselected"
-                app:layout_constraintLeft_toRightOf="@id/middle_screenview"
-                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+                <ImageView
+                    android:id="@+id/home_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:src="@drawable/ic_home_vector" />
 
-        </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true" >
 
-    </androidx.cardview.widget.CardView>
+                    <ImageView
+                        android:id="@+id/notification_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignRight="@id/search_icon"
+                        android:layout_marginRight="15dp"
+                        android:src="@drawable/ic_notifications_icon" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floating_button_main"
+                    <ImageView
+                        android:id="@+id/search_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:src="@drawable/ic_search_vector" />
+                </LinearLayout>
+
+            </RelativeLayout>
+        </com.google.android.material.appbar.MaterialToolbar>
+    </LinearLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigation_view"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/og_fuchsia"
-        android:clickable="true"
-        android:elevation="0dp"
-        app:borderWidth="0dp"
-        app:layout_constraintBottom_toTopOf="@id/floating_button_bottom"
-        app:layout_constraintRight_toLeftOf="@id/floating_button_right"
-        app:srcCompat="@drawable/ic_open_floating_button" />
+        android:layout_height="match_parent"
+        android:layout_gravity="left"
+        android:background="@color/backgroundColor"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header"
+        app:itemBackground="@drawable/ic_menu_item_background"
+        app:itemIconTint="@color/menu_colors"
+        app:itemTextColor="@color/menu_colors"
+        app:itemHorizontalPadding="20dp"
+        app:itemTextAppearance="@style/menu_item_appearence"
+        app:menu="@menu/activity_home_navigation_drawer" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floating_button_appointment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="25dp"
-        android:backgroundTint="@color/iris_100"
-        android:clickable="true"
-        android:elevation="4dp"
-        android:visibility="invisible"
-        app:borderWidth="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/floating_button_main"
-        app:layout_constraintEnd_toEndOf="@+id/floating_button_main"
-        app:srcCompat="@drawable/ic_calendar" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floating_button_barrier"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:backgroundTint="@color/iris_100"
-        android:clickable="true"
-        android:elevation="4dp"
-        android:visibility="invisible"
-        app:borderWidth="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/floating_button_appointment"
-        app:layout_constraintEnd_toEndOf="@+id/floating_button_appointment"
-        app:srcCompat="@drawable/ic_barrier" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floating_button_tracing"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:backgroundTint="@color/iris_100"
-        android:clickable="true"
-        android:elevation="4dp"
-        android:visibility="invisible"
-        app:borderWidth="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/floating_button_barrier"
-        app:layout_constraintEnd_toEndOf="@+id/floating_button_barrier"
-        app:srcCompat="@drawable/ic_tracing" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floating_button_patient"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:backgroundTint="@color/iris_100"
-        android:clickable="true"
-        android:elevation="4dp"
-        android:visibility="invisible"
-        app:borderWidth="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/floating_button_tracing"
-        app:layout_constraintEnd_toEndOf="@+id/floating_button_tracing"
-        app:srcCompat="@drawable/ic_patient" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floating_button_task"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:backgroundTint="@color/iris_100"
-        android:clickable="true"
-        android:elevation="4dp"
-        android:visibility="invisible"
-        app:borderWidth="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/floating_button_patient"
-        app:layout_constraintEnd_toEndOf="@+id/floating_button_patient"
-        app:srcCompat="@drawable/ic_task" />
-
-    <TextView
-        android:id="@+id/text_view_appointment"
-        style="@style/floating_button_label_style"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:elevation="4dp"
-        android:text="Citas"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/appointment_title_bottom"
-        app:layout_constraintEnd_toStartOf="@+id/titles_floating_button_right"
-        app:layout_constraintStart_toStartOf="@+id/titles_floating_buttons_left"
-        app:layout_constraintTop_toTopOf="@+id/appointment_title_top" />
-
-    <TextView
-        android:id="@+id/text_view_barrier"
-        style="@style/floating_button_label_style"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:elevation="4dp"
-        android:text="Barrera"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/barrier_title_bottom"
-        app:layout_constraintEnd_toStartOf="@+id/titles_floating_button_right"
-        app:layout_constraintStart_toStartOf="@+id/titles_floating_buttons_left"
-        app:layout_constraintTop_toTopOf="@+id/barrier_title_top" />
-
-    <TextView
-        android:id="@+id/text_view_tracing"
-        style="@style/floating_button_label_style"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:elevation="4dp"
-        android:text="Seguimiento"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/tracing_title_bottom"
-        app:layout_constraintEnd_toStartOf="@+id/titles_floating_button_right"
-        app:layout_constraintStart_toStartOf="@+id/titles_floating_buttons_left"
-        app:layout_constraintTop_toTopOf="@+id/tracing_title_top" />
-
-    <TextView
-        android:id="@+id/text_view_patient"
-        style="@style/floating_button_label_style"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:elevation="4dp"
-        android:text="Paciente"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/patient_title_bottom"
-        app:layout_constraintEnd_toStartOf="@+id/titles_floating_button_right"
-        app:layout_constraintStart_toStartOf="@+id/titles_floating_buttons_left"
-        app:layout_constraintTop_toTopOf="@+id/patient_title_top" />
-
-    <TextView
-        android:id="@+id/text_view_task"
-        style="@style/floating_button_label_style"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:elevation="4dp"
-        android:text="Tarea"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/task_title_bottom"
-        app:layout_constraintEnd_toStartOf="@+id/titles_floating_button_right"
-        app:layout_constraintStart_toStartOf="@+id/titles_floating_buttons_left"
-        app:layout_constraintTop_toTopOf="@+id/task_title_top" />
-
-    <!-- Guidelines to set components and make the app responsive -->
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/toolbar_bottom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.07" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/top_toolbar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.0" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/right_toolbar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.95" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/left_toolbar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.05" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/top_planification"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.09" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/bottom_planification"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.15" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/middle_screenview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/floating_button_right"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.96" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/floating_button_bottom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.9" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/titles_floating_buttons_left"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.50" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/titles_floating_button_right"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.88" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/appointment_title_top"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.709" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/appointment_title_bottom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.758" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/barrier_title_top"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.609" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/barrier_title_bottom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.658" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/tracing_title_top"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.51" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/tracing_title_bottom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.559" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/patient_title_top"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.405" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/patient_title_bottom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.454" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/task_title_top"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.305" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/task_title_bottom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.354" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/top_cardview_tasks"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.17" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/bottom_cardview_tasks"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.21" />
-
-    <include layout="@layout/activity_tasks" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

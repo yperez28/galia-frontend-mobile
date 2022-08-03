@@ -50,7 +50,6 @@
         android:elevation="2dp"
         android:scrollbars="none"
         android:visibility="invisible">
-
     </androidx.recyclerview.widget.RecyclerView>
 
     <RelativeLayout

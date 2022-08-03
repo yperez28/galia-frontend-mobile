@@ -1,19 +1,30 @@
 package com.pnp.galia_app_mobile;
 
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
 
-public class HomeActivity extends AppCompatActivity {
-
+public class HomeActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener,
+        DrawerLayout.DrawerListener {
 
     private FloatingActionButton floating_button_main;
     private FloatingActionButton floating_button_appointment;
@@ -27,18 +38,49 @@ public class HomeActivity extends AppCompatActivity {
     private TextView text_view_tracing;
     private TextView text_view_patient;
     private TextView text_view_task;
-    
-    private ImageView menuIcon;
+
     private ImageView homeIcon;
     private ImageView notificationsIcon;
     private ImageView searchIcon;
 
     private boolean clicked = false;
 
+    private DrawerLayout drawerLayout;
+    private RelativeLayout toolBarIcons;
+    private NavigationView navigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        toolBarIcons = findViewById(R.id.option_icons_container);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        drawerLayout = findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawerLayout.addDrawerListener(toggle);
+        drawerLayout.setScrimColor(Color.parseColor("#BA2C75"));
+        toggle.syncState();
+
+        navigationView = findViewById(R.id.navigation_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        MenuItem menuItem = navigationView.getMenu().getItem(0);
+        onNavigationItemSelected(menuItem);
+        menuItem.setChecked(true);
+
+        drawerLayout.addDrawerListener(this);
+
+        toolBarIcons.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(HomeActivity.this,"Icon clicked",Toast.LENGTH_SHORT).show();
+            }
+        });
 
         floating_button_main = findViewById(R.id.floating_button_main);
         floating_button_appointment = findViewById(R.id.floating_button_appointment);
@@ -52,8 +94,7 @@ public class HomeActivity extends AppCompatActivity {
         text_view_tracing = findViewById(R.id.text_view_tracing);
         text_view_patient = findViewById(R.id.text_view_patient);
         text_view_task = findViewById(R.id.text_view_task);
-        
-        menuIcon = findViewById(R.id.menu_icon);
+
         homeIcon = findViewById(R.id.home_icon);
         notificationsIcon = findViewById(R.id.notification_icon);
         searchIcon = findViewById(R.id.search_icon);
@@ -65,13 +106,6 @@ public class HomeActivity extends AppCompatActivity {
                 setClickable(clicked);
                 setAnimation(clicked);
                 clicked = !clicked;
-            }
-        });
-        
-        menuIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(HomeActivity.this,"MENU ICON CLICKED",Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -172,5 +206,55 @@ public class HomeActivity extends AppCompatActivity {
             text_view_task.setAnimation(toBottomTitle);
             floating_button_main.setAnimation(rotateClose);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        switch (menuItem.getItemId()) {
+            case R.id.planification_item:
+                Toast.makeText(HomeActivity.this, "Opening planification",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.patient_item:
+                Toast.makeText(HomeActivity.this, "Opening Patient",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.settings_item:
+                Toast.makeText(HomeActivity.this, "Opening Settings",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.log_out_item:
+                Intent intent = new Intent(this, LoginActivity.class);
+                startActivity(intent);
+                break;
+            default:
+                throw new IllegalArgumentException("menu option not implemented!!");
+        }
+
+        drawerLayout.closeDrawer(GravityCompat.START);
+
+        return true;
+    }
+
+    @Override
+    public void onDrawerSlide(@NonNull View drawerView, float slideOffset) {
+    }
+
+    @Override
+    public void onDrawerOpened(@NonNull View view) {
+    }
+
+    @Override
+    public void onDrawerClosed(@NonNull View view) {
+    }
+
+    @Override
+    public void onDrawerStateChanged(int i) {
     }
 }

@@ -25,4 +25,9 @@
         <item name="android:textSize">14sp</item>
     </style>
 
+    <style name="menu_item_appearence">
+        <item name="fontFamily">@font/inter_regular</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
 </resources>

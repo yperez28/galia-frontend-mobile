@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">galia-app-mobile</string>
     <string name="show_password">show password</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="username_hint">Ingrese su nombre de usuario</string>
     <string name="top_pink_vector">top pink vector</string>
     <string name="bottom_pink_vector">bottom_pink_vector</string>
@@ -13,6 +15,9 @@
     <string name="patient">Paciente:</string>
     <string name="mode">Modo:</string>
     <string name="planification">Planificación</string>
+    <string name="patients">Pacientes</string>
+    <string name="settings">Configuración</string>
+    <string name="log_out">Cerrar sesión</string>
 
     <string-array name="custom_weekdays">
         <item>LUN</item>
