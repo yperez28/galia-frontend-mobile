@@ -18,6 +18,10 @@
     <string name="patients">Pacientes</string>
     <string name="settings">Configuración</string>
     <string name="log_out">Cerrar sesión</string>
+    <string name="barreras">Barreras</string>
+    <string name="tareas">Tareas</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string-array name="custom_weekdays">
         <item>LUN</item>

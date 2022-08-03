@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragmentTasksList"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gris_6"
+    tools:context=".TasksListFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardview_list"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:cardBackgroundColor="@color/backgroundColor"
+            app:cardCornerRadius="21.51dp"
+            app:cardElevation="4dp"
+            app:layout_constraintTop_toBottomOf="@id/top_cardview_list"
+            app:layout_constraintBottom_toTopOf="@id/bottom_cardview_list"
+            app:layout_constraintLeft_toRightOf="@id/left_fragment_margin"
+            app:layout_constraintRight_toLeftOf="@id/right_fragment_margin">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_list_selected"
+                    android:layout_width="185dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_btn_list_selected"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                <Button
+                    android:id="@+id/btn_calendar_unselected"
+                    android:layout_width="185dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_btn_calendar_unselected"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/btn_add_new_task"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/ic_add_tasks"
+            app:layout_constraintBottom_toTopOf="@id/bottom_add_task"
+            app:layout_constraintLeft_toRightOf="@id/left_fragment_margin"
+            app:layout_constraintRight_toLeftOf="@id/right_fragment_margin"
+            app:layout_constraintTop_toBottomOf="@id/top_add_task"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+        <Button
+            android:id="@+id/btn_tasks_complete_close"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/ic_btn_tasks_complete"
+            app:layout_constraintBottom_toTopOf="@id/bottom_task_complete"
+            app:layout_constraintLeft_toRightOf="@id/left_fragment_margin"
+            app:layout_constraintRight_toLeftOf="@id/right_fragment_margin"
+            app:layout_constraintTop_toBottomOf="@id/top_task_complete"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <Button
+            android:id="@+id/btn_tasks_to_do_close"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/ic_btn_tasks_to_do"
+            app:layout_constraintBottom_toTopOf="@id/bottom_task_to_do"
+            app:layout_constraintLeft_toRightOf="@id/left_fragment_margin"
+            app:layout_constraintRight_toLeftOf="@id/right_fragment_margin"
+            app:layout_constraintTop_toBottomOf="@id/top_task_to_do"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/left_fragment_margin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/right_fragment_margin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="1" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/middle_fragment_margin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/top_cardview_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/bottom_cardview_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.037" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/top_task_to_do"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.06" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/bottom_task_to_do"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.104" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/top_task_complete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.15" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/bottom_task_complete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.194" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/top_add_task"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.24" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/bottom_add_task"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.284" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

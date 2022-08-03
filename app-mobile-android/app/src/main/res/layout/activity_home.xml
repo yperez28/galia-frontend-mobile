@@ -219,6 +219,52 @@
             app:layout_constraintStart_toStartOf="@+id/titles_floating_buttons_left"
             app:layout_constraintTop_toTopOf="@+id/task_title_top" />
 
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_cardview_barriers"
+            app:layout_constraintEnd_toStartOf="@+id/right_screen_margin"
+            app:layout_constraintStart_toStartOf="@+id/left_screen_margin"
+            app:layout_constraintTop_toTopOf="@id/top_cardview_barriers">
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/fragment_home_page"
+                android:name="com.pnp.galia_app_mobile.TasksListFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:layout="@layout/fragment_tasks_list" />
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/left_screen_margin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/right_screen_margin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/top_cardview_barriers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.25" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/bottom_cardview_barriers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.95" />
+
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/toolbar_bottom"
             android:layout_width="wrap_content"
@@ -380,7 +426,6 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.21" />
 
-        <include layout="@layout/activity_tasks" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
@@ -448,7 +493,5 @@
         app:itemHorizontalPadding="20dp"
         app:itemTextAppearance="@style/menu_item_appearence"
         app:menu="@menu/activity_home_navigation_drawer" />
-
-
 
 </androidx.drawerlayout.widget.DrawerLayout>
