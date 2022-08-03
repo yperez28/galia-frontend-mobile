@@ -73,7 +73,7 @@ public class CalendarActivity extends AppCompatActivity implements OnDateSelecte
         addTaskHolder.setVisibility(View.VISIBLE);
 
         Task[] taskList = new Task[] {new Task("1", "Tarea numero uno", "María Gutierrez L", "Preguntar sobre la situación de transporte", new Date(), "Alta", "Presencial", "Susana Cornejo"), new Task("2", "Tarea numero dos", "Sandra Castro J", "Conseguir teléfono de persona de contacto", new Date(), "Media", "Telefónico", "Andres Cornejo"), new Task("3", "Tarea numero tres", "Lucía López Ruíz", "Acompañar a quimioterapia", new Date(), "Baja", "Presencial", "Susana Cornejo")};
-        this.getVisibleView(taskList);
+        getVisibleView(taskList);
 
     }
 
