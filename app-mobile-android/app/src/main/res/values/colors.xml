@@ -4,6 +4,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFF</color>
     <color name="backgroundColor">#FDFDFD</color>
+    <color name="transparentColor">#00FDFDFD</color>
+    <color name="overlayColor">#BAF2F2F2</color>
     <color name="backgroundColorTwo">#F3F3F3</color>
     <color name="main_titles_login">#4F4F4F</color>
     <color name="login_titles">#262626</color>

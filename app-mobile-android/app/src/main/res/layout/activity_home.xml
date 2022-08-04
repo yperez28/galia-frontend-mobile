@@ -10,6 +10,7 @@
     android:background="@color/backgroundColorTwo"
     tools:openDrawer="start">
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -72,6 +73,66 @@
 
         </androidx.cardview.widget.CardView>
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/mode_cardview"
+            android:layout_width="0dp"
+            android:layout_height="25dp"
+            app:cardBackgroundColor="@color/backgroundColor"
+            app:cardCornerRadius="21.51dp"
+            app:cardElevation="4dp"
+            app:layout_constraintTop_toBottomOf="@+id/top_cardview_barriers"
+            app:layout_constraintStart_toEndOf="@id/left_toolbar"
+            app:layout_constraintEnd_toStartOf="@id/right_toolbar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="165dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+                    <Button
+                        android:id="@+id/list_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:text="@string/list"
+                        android:textAllCaps="false"
+                        android:textColor="@color/mode_icon_color"
+                        android:textSize="12sp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:fontFamily="@font/inter_bold"
+                        android:drawableStart="@drawable/ic_list_btn_icon"
+                        android:drawableTint="@color/mode_icon_color"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="165dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+                    <Button
+                        android:id="@+id/calendar_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:text="@string/calendar"
+                        android:textAllCaps="false"
+                        android:textColor="@color/mode_icon_color"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:paddingRight="10dp"
+                        android:fontFamily="@font/inter_bold"
+                        android:drawableStart="@drawable/ic_calendar_btn_icon"
+                        android:drawablePadding="9dp"
+                        android:drawableTint="@color/mode_icon_color"/>
+                </LinearLayout>
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/floating_button_main"
             android:layout_width="wrap_content"
@@ -82,7 +143,8 @@
             app:borderWidth="0dp"
             app:layout_constraintBottom_toTopOf="@id/floating_button_bottom"
             app:layout_constraintRight_toLeftOf="@id/floating_button_right"
-            app:srcCompat="@drawable/ic_open_floating_button" />
+            app:srcCompat="@drawable/ic_open_floating_button"
+            android:contentDescription="Floating button" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/floating_button_appointment"
@@ -226,7 +288,7 @@
             app:layout_constraintBottom_toTopOf="@+id/bottom_cardview_barriers"
             app:layout_constraintEnd_toStartOf="@+id/right_screen_margin"
             app:layout_constraintStart_toStartOf="@+id/left_screen_margin"
-            app:layout_constraintTop_toTopOf="@id/top_cardview_barriers">
+            app:layout_constraintTop_toBottomOf="@id/bottom_fragment">
 
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/fragment_home_page"
@@ -426,14 +488,30 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.21" />
 
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/bottom_fragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.33" />
+
+        <LinearLayout
+            android:id="@+id/floating_button_overlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#BAF2F2F2"
+            android:visibility="invisible"
+            android:orientation="horizontal">
+
+        </LinearLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
         android:id="@+id/home_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".HomeActivity">
+        android:orientation="vertical">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"

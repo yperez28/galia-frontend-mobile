@@ -2,6 +2,7 @@ package com.pnp.galia_app_mobile;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,6 +19,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
@@ -52,6 +55,9 @@ public class HomeActivity extends AppCompatActivity
     private DrawerLayout drawerLayout;
     private RelativeLayout toolBarIcons;
     private NavigationView navigationView;
+    private CardView modeCardView;
+    private CardView selectedCardView;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,15 +65,15 @@ public class HomeActivity extends AppCompatActivity
         setContentView(R.layout.activity_home);
 
         toolBarIcons = findViewById(R.id.option_icons_container);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(findViewById(R.id.toolbar));
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         drawerLayout = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
-        drawerLayout.setScrimColor(Color.parseColor("#BA2C75"));
+        drawerLayout.setScrimColor(Color.parseColor("#BABA2C75"));
         toggle.syncState();
 
         navigationView = findViewById(R.id.navigation_view);
@@ -77,14 +83,14 @@ public class HomeActivity extends AppCompatActivity
         onNavigationItemSelected(menuItem);
         menuItem.setChecked(true);
 
-        drawerLayout.addDrawerListener(this);
+        Button listViewButton = findViewById(R.id.list_view);
+        Button calendarViewButton = findViewById(R.id.calendar_view);
+        listViewButton.setSelected(true);
+        listViewButton.setBackgroundResource(R.drawable.ic_button_background);
+        modeCardView = findViewById(R.id.mode_cardview);
+        selectedCardView = findViewById(R.id.cardview_tasks);
 
-        toolBarIcons.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(HomeActivity.this,"Icon clicked",Toast.LENGTH_SHORT).show();
-            }
-        });
+        drawerLayout.addDrawerListener(this);
 
         floating_button_main = findViewById(R.id.floating_button_main);
         floating_button_appointment = findViewById(R.id.floating_button_appointment);
@@ -108,69 +114,73 @@ public class HomeActivity extends AppCompatActivity
 
         FragmentManager fragmentManager = getSupportFragmentManager();
 
-        btnTasks.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                fragmentManager.beginTransaction()
-                        .replace(R.id.fragment_home_page, TasksListFragment.class, null)
-                        .setReorderingAllowed(true)
-                        .addToBackStack("name")
-                        .commit();
-                btnBarriers.setBackgroundResource(R.drawable.ic_btn_rounded_unselected);
-                btnBarriers.setTextColor(getResources().getColor(R.color.gris_5));
-                btnTasks.setBackgroundResource(R.drawable.ic_btn_rounded_selected);
-                btnTasks.setTextColor(getResources().getColor(R.color.backgroundColor));
-            }
+        toolBarIcons.setOnClickListener(view -> Toast.makeText(HomeActivity.this,"Icon clicked",Toast.LENGTH_SHORT).show());
+
+        listViewButton.setOnClickListener(view -> {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.fragment_home_page, TasksListFragment.class, null)
+                    .setReorderingAllowed(true)
+                    .addToBackStack("name")
+                    .commit();
+            calendarViewButton.setSelected(false);
+            calendarViewButton.setBackgroundResource(R.color.transparentColor);
+            listViewButton.setSelected(true);
+            listViewButton.setBackgroundResource(R.drawable.ic_button_background);
         });
 
-        btnBarriers.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                fragmentManager.beginTransaction()
-                        .replace(R.id.fragment_home_page, BarriersAllFragment.class, null)
-                        .setReorderingAllowed(true)
-                        .addToBackStack("name")
-                        .commit();
-                btnBarriers.setBackgroundResource(R.drawable.ic_btn_rounded_selected);
-                btnBarriers.setTextColor(getResources().getColor(R.color.backgroundColor));
-                btnTasks.setBackgroundResource(R.drawable.ic_btn_rounded_unselected);
-                btnTasks.setTextColor(getResources().getColor(R.color.gris_5));
-            }
+        calendarViewButton.setOnClickListener(view -> {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.fragment_home_page, TasksCalendarFragment.class, null)
+                    .setReorderingAllowed(true)
+                    .addToBackStack("name")
+                    .commit();
+
+            calendarViewButton.setSelected(true);
+            calendarViewButton.setBackgroundResource(R.drawable.ic_button_background);
+            listViewButton.setSelected(false);
+            listViewButton.setBackgroundResource(R.color.transparentColor);
         });
 
-        floating_button_main.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                setVisibility(clicked);
-                setClickable(clicked);
-                setAnimation(clicked);
-                clicked = !clicked;
-            }
+        btnTasks.setOnClickListener(view -> {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.fragment_home_page, TasksListFragment.class, null)
+                    .setReorderingAllowed(true)
+                    .addToBackStack("name")
+                    .commit();
+            btnBarriers.setBackgroundResource(R.drawable.ic_btn_rounded_unselected);
+            btnBarriers.setTextColor(getResources().getColor(R.color.gris_5));
+            btnTasks.setBackgroundResource(R.drawable.ic_btn_rounded_selected);
+            btnTasks.setTextColor(getResources().getColor(R.color.backgroundColor));
+            modeCardView.setVisibility(View.VISIBLE);
         });
 
-        homeIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(HomeActivity.this,"HOME ICON CLICKED",Toast.LENGTH_SHORT).show();
-            }
+        btnBarriers.setOnClickListener(view -> {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.fragment_home_page, BarriersAllFragment.class, null)
+                    .setReorderingAllowed(true)
+                    .addToBackStack("name")
+                    .commit();
+            btnBarriers.setBackgroundResource(R.drawable.ic_btn_rounded_selected);
+            btnBarriers.setTextColor(getResources().getColor(R.color.backgroundColor));
+            btnTasks.setBackgroundResource(R.drawable.ic_btn_rounded_unselected);
+            btnTasks.setTextColor(getResources().getColor(R.color.gris_5));
+            modeCardView.setVisibility(View.INVISIBLE);
         });
 
-        notificationsIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(HomeActivity.this,"NOTIFICATIONS ICON CLICKED",Toast.LENGTH_SHORT).show();
-            }
+        floating_button_main.setOnClickListener(view -> {
+            setVisibility(clicked);
+            setClickable(clicked);
+            setAnimation(clicked);
+            clicked = !clicked;
         });
 
-        searchIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(HomeActivity.this,"SEARCH ICON CLICKED",Toast.LENGTH_SHORT).show();
-            }
-        });
+        homeIcon.setOnClickListener(view -> Toast.makeText(HomeActivity.this,"HOME ICON CLICKED",Toast.LENGTH_SHORT).show());
+        notificationsIcon.setOnClickListener(view -> Toast.makeText(HomeActivity.this,"NOTIFICATIONS ICON CLICKED",Toast.LENGTH_SHORT).show());
+        searchIcon.setOnClickListener(view -> Toast.makeText(HomeActivity.this,"SEARCH ICON CLICKED",Toast.LENGTH_SHORT).show());
     }
     
     private void setVisibility(boolean clicked) {
+        LinearLayout overlay = findViewById(R.id.floating_button_overlay);
         if (!clicked) {
             floating_button_appointment.setVisibility(View.VISIBLE);
             floating_button_barrier.setVisibility(View.VISIBLE);
@@ -182,7 +192,19 @@ public class HomeActivity extends AppCompatActivity
             text_view_tracing.setVisibility(View.VISIBLE);
             text_view_patient.setVisibility(View.VISIBLE);
             text_view_task.setVisibility(View.VISIBLE);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                modeCardView.setElevation(0);
+                selectedCardView.setElevation(0);
+            }
+            overlay.setBackgroundResource(R.color.overlayColor);
+            overlay.setVisibility(View.VISIBLE);
         } else {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                modeCardView.setElevation(4);
+                selectedCardView.setElevation(4);
+            }
+            overlay.setBackgroundResource(R.color.transparentColor);
+            overlay.setVisibility(View.INVISIBLE);
             floating_button_appointment.setVisibility(View.INVISIBLE);
             floating_button_barrier.setVisibility(View.INVISIBLE);
             floating_button_tracing.setVisibility(View.INVISIBLE);
