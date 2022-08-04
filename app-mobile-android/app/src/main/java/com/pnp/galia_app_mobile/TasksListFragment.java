@@ -1,15 +1,14 @@
 package com.pnp.galia_app_mobile;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -68,10 +67,14 @@ public class TasksListFragment extends Fragment {
         Button btnTasksToDo = myView.findViewById(R.id.btn_tasks_to_do_close);
         Button btnTasksComplete = myView.findViewById(R.id.btn_tasks_complete_close);
         Button btnAddTask = myView.findViewById(R.id.btn_add_new_task);
+        Button listButton = myView.findViewById(R.id.btn_list_selected);
+        listButton.setSelected(true);
+        listButton.setBackgroundResource(R.drawable.ic_button_background);
 
         btnCalendar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 myFragmentManager.beginTransaction()
                         .replace(R.id.fragment_home_page, TasksCalendarFragment.class, null)
                         .setReorderingAllowed(true)
