@@ -56,6 +56,7 @@ public class HomeActivity extends AppCompatActivity
     private RelativeLayout toolBarIcons;
     private NavigationView navigationView;
     private CardView modeCardView;
+    private CardView barriersCardView;
     private CardView selectedCardView;
     private Toolbar toolbar;
 
@@ -87,7 +88,13 @@ public class HomeActivity extends AppCompatActivity
         Button calendarViewButton = findViewById(R.id.calendar_view);
         listViewButton.setSelected(true);
         listViewButton.setBackgroundResource(R.drawable.ic_button_background);
+        Button allViewButton = findViewById(R.id.barriers_all_view);
+        Button internViewButton = findViewById(R.id.barriers_interns_view);
+        Button externViewButton = findViewById(R.id.barriers_externs_view);
+        allViewButton.setSelected(true);
+        allViewButton.setBackgroundResource(R.drawable.ic_button_background);
         modeCardView = findViewById(R.id.mode_cardview);
+        barriersCardView = findViewById(R.id.cardview_barriers);
         selectedCardView = findViewById(R.id.cardview_tasks);
 
         drawerLayout.addDrawerListener(this);
@@ -141,6 +148,48 @@ public class HomeActivity extends AppCompatActivity
             listViewButton.setBackgroundResource(R.color.transparentColor);
         });
 
+        allViewButton.setOnClickListener(view -> {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.fragment_home_page, BarriersAllFragment.class, null)
+                    .setReorderingAllowed(true)
+                    .addToBackStack("name")
+                    .commit();
+            internViewButton.setSelected(false);
+            internViewButton.setBackgroundResource(R.color.transparentColor);
+            externViewButton.setSelected(false);
+            externViewButton.setBackgroundResource(R.color.transparentColor);
+            allViewButton.setSelected(true);
+            allViewButton.setBackgroundResource(R.drawable.ic_button_background);
+        });
+
+        internViewButton.setOnClickListener(view -> {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.fragment_home_page, BarriersInternFragment.class, null)
+                    .setReorderingAllowed(true)
+                    .addToBackStack("name")
+                    .commit();
+            internViewButton.setSelected(true);
+            internViewButton.setBackgroundResource(R.drawable.ic_button_background);
+            externViewButton.setSelected(false);
+            externViewButton.setBackgroundResource(R.color.transparentColor);
+            allViewButton.setSelected(false);
+            allViewButton.setBackgroundResource(R.color.transparentColor);
+        });
+
+        externViewButton.setOnClickListener(view -> {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.fragment_home_page, BarriersExternFragment.class, null)
+                    .setReorderingAllowed(true)
+                    .addToBackStack("name")
+                    .commit();
+            internViewButton.setSelected(false);
+            internViewButton.setBackgroundResource(R.color.transparentColor);
+            externViewButton.setSelected(true);
+            externViewButton.setBackgroundResource(R.drawable.ic_button_background);
+            allViewButton.setSelected(false);
+            allViewButton.setBackgroundResource(R.color.transparentColor);
+        });
+
         btnTasks.setOnClickListener(view -> {
             fragmentManager.beginTransaction()
                     .replace(R.id.fragment_home_page, TasksListFragment.class, null)
@@ -152,6 +201,7 @@ public class HomeActivity extends AppCompatActivity
             btnTasks.setBackgroundResource(R.drawable.ic_btn_rounded_selected);
             btnTasks.setTextColor(getResources().getColor(R.color.backgroundColor));
             modeCardView.setVisibility(View.VISIBLE);
+            barriersCardView.setVisibility(View.INVISIBLE);
         });
 
         btnBarriers.setOnClickListener(view -> {
@@ -165,6 +215,7 @@ public class HomeActivity extends AppCompatActivity
             btnTasks.setBackgroundResource(R.drawable.ic_btn_rounded_unselected);
             btnTasks.setTextColor(getResources().getColor(R.color.gris_5));
             modeCardView.setVisibility(View.INVISIBLE);
+            barriersCardView.setVisibility(View.VISIBLE);
         });
 
         floating_button_main.setOnClickListener(view -> {

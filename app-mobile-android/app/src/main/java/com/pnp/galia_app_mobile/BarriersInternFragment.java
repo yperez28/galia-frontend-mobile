@@ -61,34 +61,6 @@ public class BarriersInternFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View myView = inflater.inflate(R.layout.fragment_barriers_intern, container, false);
-        FragmentManager myFragmentManager = getFragmentManager();
-
-        Button btnAll = myView.findViewById(R.id.btn_all_unselected1);
-        Button btnExtern = myView.findViewById(R.id.btn_extern_unselected2);
-
-        btnAll.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                myFragmentManager.beginTransaction()
-                        .replace(R.id.fragment_home_page, BarriersAllFragment.class, null)
-                        .setReorderingAllowed(true)
-                        .addToBackStack("name")
-                        .commit();
-
-            }
-        });
-
-        btnExtern.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                myFragmentManager.beginTransaction()
-                        .replace(R.id.fragment_home_page, BarriersExternFragment.class, null)
-                        .setReorderingAllowed(true)
-                        .addToBackStack("name")
-                        .commit();
-
-            }
-        });
 
         return myView;
     }
