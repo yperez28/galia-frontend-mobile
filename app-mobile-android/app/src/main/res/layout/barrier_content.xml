@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/barrier_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/inter_regular"
+        android:maxLines="1"
+        android:paddingStart="20dp"
+        android:paddingEnd="4dp"
+        android:text="Descripción de la tarea"
+        android:textColor="@color/iris_100"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/patient_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/barrier_name"
+        android:fontFamily="@font/inter_semibold"
+        android:paddingLeft="26dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:text="@string/patient"
+        android:textColor="@color/gris_5"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/patient_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/barrier_name"
+        android:layout_toRightOf="@+id/patient_title"
+        android:fontFamily="@font/inter_semibold"
+        android:maxLines="1"
+        android:paddingLeft="10dp"
+        android:paddingTop="12dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="12dp"
+        android:text="Sandra Castro J"
+        android:textColor="@color/iris_100"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/priority_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/barrier_name"
+        android:layout_toEndOf="@+id/patient_name"
+        android:fontFamily="@font/inter_semibold"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:text="@string/priority"
+        android:textColor="@color/gris_5"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/priority_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/barrier_name"
+        android:layout_toEndOf="@+id/priority_title"
+        android:fontFamily="@font/inter_semibold"
+        android:maxLines="1"
+        android:paddingLeft="10dp"
+        android:paddingTop="12dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="12dp"
+        android:text="Alta"
+        android:textColor="@color/iris_100"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/clasification_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/patient_title"
+        android:fontFamily="@font/inter_semibold"
+        android:paddingLeft="26dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:text="@string/clasification"
+        android:textColor="@color/gris_5"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/clasification_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/patient_title"
+        android:layout_toRightOf="@+id/clasification_title"
+        android:fontFamily="@font/inter_semibold"
+        android:maxLines="1"
+        android:paddingLeft="10dp"
+        android:paddingTop="12dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="12dp"
+        android:text="Religioso"
+        android:textColor="@color/iris_100"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/type_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/patient_title"
+        android:layout_toEndOf="@+id/clasification_description"
+        android:fontFamily="@font/inter_semibold"
+        android:paddingLeft="26dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:text="@string/type"
+        android:textColor="@color/gris_5"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/type_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/patient_title"
+        android:layout_toRightOf="@+id/type_title"
+        android:fontFamily="@font/inter_semibold"
+        android:maxLines="1"
+        android:paddingLeft="10dp"
+        android:paddingTop="12dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="12dp"
+        android:text="Interna"
+        android:textColor="@color/iris_100"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/code_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/clasification_title"
+        android:fontFamily="@font/inter_semibold"
+        android:paddingLeft="26dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:text="@string/code"
+        android:textColor="@color/gris_3"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/code_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/clasification_title"
+        android:layout_toRightOf="@+id/code_title"
+        android:fontFamily="@font/inter_semibold"
+        android:maxLines="1"
+        android:paddingLeft="10dp"
+        android:paddingTop="12dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="12dp"
+        android:text="B07"
+        android:textColor="@color/iris_60"
+        android:textSize="12sp" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_below="@+id/code_title"
+        android:background="@color/gris_3" />
+
+</RelativeLayout>

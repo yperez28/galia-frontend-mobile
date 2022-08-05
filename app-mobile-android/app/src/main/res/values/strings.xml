@@ -27,6 +27,10 @@
     <string name="all">Todas</string>
     <string name="interns">Internas</string>
     <string name="externs">Externas</string>
+    <string name="clasification">Clasificación:</string>
+    <string name="code">Código:</string>
+    <string name="type">Tipo:</string>
+    <string name="priority">Prioridad:</string>
 
     <string-array name="custom_weekdays">
         <item>LUN</item>
