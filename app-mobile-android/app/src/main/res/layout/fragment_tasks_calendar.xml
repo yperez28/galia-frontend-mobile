@@ -13,68 +13,9 @@
         android:layout_height="match_parent"
         android:background="@android:color/transparent">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardview_calendar"
-            android:layout_width="match_parent"
-            android:layout_height="25dp"
-            app:cardBackgroundColor="@color/backgroundColor"
-            app:cardCornerRadius="21.51dp"
-            app:cardElevation="4dp" >
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="165dp"
-                    android:layout_height="match_parent"
-                    android:gravity="center">
-                    <Button
-                        android:id="@+id/btn_list_selected"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:background="@android:color/transparent"
-                        android:text="@string/list"
-                        android:textAllCaps="false"
-                        android:textColor="@color/mode_icon_color"
-                        android:textSize="12sp"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
-                        android:fontFamily="@font/inter_bold"
-                        android:drawableStart="@drawable/ic_list_btn_icon"
-                        android:drawablePadding="0dp"
-                        android:drawableTint="@color/mode_icon_color"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="165dp"
-                    android:layout_height="match_parent"
-                    android:gravity="center">
-                    <Button
-                        android:id="@+id/btn_calendar_unselected"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:background="@android:color/transparent"
-                        android:text="@string/calendar"
-                        android:textAllCaps="false"
-                        android:textColor="@color/mode_icon_color"
-                        android:textSize="12sp"
-                        android:gravity="center"
-                        android:paddingRight="10dp"
-                        android:fontFamily="@font/inter_bold"
-                        android:drawableStart="@drawable/ic_calendar_btn_icon"
-                        android:drawablePadding="8dp"
-                        android:drawableTint="@color/mode_icon_color"/>
-                </LinearLayout>
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
         <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/cardview_calendar"
             android:background="@color/backgroundColorTwo" >
 
             <com.prolificinteractive.materialcalendarview.MaterialCalendarView
@@ -83,7 +24,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="212dp"
                 android:layout_alignParentTop="true"
-                android:layout_marginTop="30dp"
                 android:elevation="2dp"
                 android:background="@drawable/ic_calendar_container"
                 app:mcv_showOtherDates="all"

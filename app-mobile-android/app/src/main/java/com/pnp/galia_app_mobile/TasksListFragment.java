@@ -63,26 +63,9 @@ public class TasksListFragment extends Fragment {
         View myView = inflater.inflate(R.layout.fragment_tasks_list, container, false);
         FragmentManager myFragmentManager = getFragmentManager();
 
-        Button btnCalendar = myView.findViewById(R.id.btn_calendar_unselected);
         Button btnTasksToDo = myView.findViewById(R.id.btn_tasks_to_do_close);
         Button btnTasksComplete = myView.findViewById(R.id.btn_tasks_complete_close);
         Button btnAddTask = myView.findViewById(R.id.btn_add_new_task);
-        Button listButton = myView.findViewById(R.id.btn_list_selected);
-        listButton.setSelected(true);
-        listButton.setBackgroundResource(R.drawable.ic_button_background);
-
-        btnCalendar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                myFragmentManager.beginTransaction()
-                        .replace(R.id.fragment_home_page, TasksCalendarFragment.class, null)
-                        .setReorderingAllowed(true)
-                        .addToBackStack("name")
-                        .commit();
-
-            }
-        });
 
         btnTasksToDo.setOnClickListener(new View.OnClickListener() {
             @Override

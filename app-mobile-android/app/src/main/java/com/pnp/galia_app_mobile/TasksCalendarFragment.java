@@ -85,11 +85,6 @@ public class TasksCalendarFragment extends Fragment {
         View myView = inflater.inflate(R.layout.fragment_tasks_calendar, container, false);
         FragmentManager myFragmentManager = getFragmentManager();
 
-        Button btnList = myView.findViewById(R.id.btn_list_selected);
-        Button calendarButton = myView.findViewById(R.id.btn_calendar_unselected);
-        calendarButton.setSelected(true);
-        calendarButton.setBackgroundResource(R.drawable.ic_button_background);
-
         LinearLayout header = myView.findViewById(com.prolificinteractive.materialcalendarview.R.id.header);
         header.setBackgroundResource(R.drawable.ic_top_calendar);
         header.setPadding(120,0,120,0);
@@ -121,17 +116,6 @@ public class TasksCalendarFragment extends Fragment {
         addTaskButton.setOnClickListener(view -> {
             String message = "Adding new task...";
             Toast.makeText(getContext(), message, Toast.LENGTH_LONG).show();
-        });
-
-        btnList.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                myFragmentManager.beginTransaction()
-                        .replace(R.id.fragment_home_page, TasksListFragment.class, null)
-                        .setReorderingAllowed(true)
-                        .addToBackStack("name")
-                        .commit();
-            }
         });
 
         return myView;
