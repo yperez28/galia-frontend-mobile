@@ -66,7 +66,7 @@
                 android:layout_below="@+id/task_recycler"
                 android:background="@color/backgroundColor"
                 android:elevation="2dp"
-                android:visibility="invisible" >
+                android:visibility="invisible">
 
                 <Button
                     android:id="@+id/add_task_button"
@@ -78,8 +78,8 @@
                     android:paddingStart="5dp"
                     android:text="   Agregar tarea"
                     android:textAllCaps="false"
-                    android:textSize="12sp"
-                    android:textColor="@color/gris_5" />
+                    android:textColor="@color/gris_5"
+                    android:textSize="12sp" />
 
             </RelativeLayout>
 

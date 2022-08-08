@@ -37,8 +37,8 @@
             app:cardCornerRadius="21.51dp"
             app:cardElevation="4dp"
             app:layout_constraintBottom_toTopOf="@id/bottom_cardview_tasks"
-            app:layout_constraintLeft_toRightOf="@id/left_toolbar"
-            app:layout_constraintRight_toLeftOf="@id/right_toolbar"
+            app:layout_constraintLeft_toRightOf="@id/left_screen_margin"
+            app:layout_constraintRight_toLeftOf="@id/right_screen_margin"
             app:layout_constraintTop_toBottomOf="@id/top_cardview_tasks">
 
             <LinearLayout
@@ -48,27 +48,26 @@
 
                 <Button
                     android:id="@+id/btn_tasks"
-                    android:layout_width="165dp"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/ic_selected_rounded_button"
+                    android:layout_width="185dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/ic_task_barrier_selected"
                     android:fontFamily="@font/inter_bold"
-                    android:text="Tareas"
+                    android:text="@string/task"
                     android:textAllCaps="false"
                     android:textColor="@color/gris_6"
                     android:textSize="14sp" />
 
                 <Button
                     android:id="@+id/btn_barriers"
-                    android:layout_width="165dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="185dp"
+                    android:layout_height="match_parent"
                     android:background="@android:color/transparent"
                     android:fontFamily="@font/inter_bold"
-                    android:text="Barreras"
+                    android:text="@string/barriers"
+                    android:textAlignment="center"
                     android:textAllCaps="false"
                     android:textColor="@color/gris_5"
-                    android:textSize="14sp"
-                    app:layout_constraintLeft_toRightOf="@id/middle_screenview" />
-
+                    android:textSize="14sp" />
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
@@ -371,10 +370,10 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@+id/bottom_cardview_barriers"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_fragment_home"
             app:layout_constraintEnd_toStartOf="@+id/right_screen_margin"
             app:layout_constraintStart_toStartOf="@+id/left_screen_margin"
-            app:layout_constraintTop_toBottomOf="@id/bottom_fragment">
+            app:layout_constraintTop_toBottomOf="@id/top_fragment_home">
 
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/fragment_home_page"
@@ -407,11 +406,18 @@
             app:layout_constraintGuide_percent="0.24" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/bottom_cardview_barriers"
+            android:id="@+id/top_fragment_home"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.95" />
+            app:layout_constraintGuide_percent="0.33" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/bottom_fragment_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="1" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/toolbar_bottom"
@@ -573,13 +579,6 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.21" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/bottom_fragment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.33" />
 
         <LinearLayout
             android:id="@+id/floating_button_overlay"
