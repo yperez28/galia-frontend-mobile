@@ -6,8 +6,10 @@ import android.transition.TransitionManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
@@ -70,6 +72,8 @@ public class TasksListFragment extends Fragment {
                              Bundle savedInstanceState) {
         View myView = inflater.inflate(R.layout.fragment_tasks_list, container, false);
 
+        Button btnAddTask = myView.findViewById(R.id.add_task_button);
+
         recyclerViewTaskToDo = myView.findViewById(R.id.task_todo_recycler);
         ImageView arrowTaskToDo = myView.findViewById(R.id.arrow_task_to_do);
         LinearLayout hiddenViewTaskToDo = myView.findViewById(R.id.hidden_task_to_do_layout);
@@ -113,6 +117,13 @@ public class TasksListFragment extends Fragment {
                     Task[] taskList = new Task[] {new Task("1", "Tarea numero uno", "María Gutierrez L", "Preguntar sobre la situación de transporte", new Date(), "Alta", "Presencial", "Susana Cornejo"), new Task("2", "Tarea numero dos", "Sandra Castro J", "Conseguir teléfono de persona de contacto", new Date(), "Media", "Telefónico", "Andres Cornejo"), new Task("3", "Tarea numero tres", "Lucía López Ruíz", "Acompañar a quimioterapia", new Date(), "Baja", "Presencial", "Susana Cornejo")};
                     getVisibleTaskCompleteView(taskList);
                 }
+            }
+        });
+
+        btnAddTask.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
             }
         });
 
