@@ -31,6 +31,12 @@
     <string name="code">Código:</string>
     <string name="type">Tipo:</string>
     <string name="priority">Prioridad:</string>
+    <string name="task_to_do">Por hacer</string>
+    <string name="task_complete">Completas</string>
+    <string name="add_task">Agregar tarea</string>
+    <string name="deadline">Deadline:</string>
+    <string name="task">Tareas</string>
+    <string name="barriers">Barreras</string>
 
     <string-array name="custom_weekdays">
         <item>LUN</item>

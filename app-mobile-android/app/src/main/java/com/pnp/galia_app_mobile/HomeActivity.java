@@ -196,9 +196,9 @@ public class HomeActivity extends AppCompatActivity
                     .setReorderingAllowed(true)
                     .addToBackStack("name")
                     .commit();
-            btnBarriers.setBackgroundResource(R.drawable.ic_btn_rounded_unselected);
+            btnBarriers.setBackgroundResource(R.color.transparentColor);
             btnBarriers.setTextColor(getResources().getColor(R.color.gris_5));
-            btnTasks.setBackgroundResource(R.drawable.ic_btn_rounded_selected);
+            btnTasks.setBackgroundResource(R.drawable.ic_task_barrier_selected);
             btnTasks.setTextColor(getResources().getColor(R.color.backgroundColor));
             modeCardView.setVisibility(View.VISIBLE);
             barriersCardView.setVisibility(View.INVISIBLE);
@@ -210,9 +210,9 @@ public class HomeActivity extends AppCompatActivity
                     .setReorderingAllowed(true)
                     .addToBackStack("name")
                     .commit();
-            btnBarriers.setBackgroundResource(R.drawable.ic_btn_rounded_selected);
+            btnBarriers.setBackgroundResource(R.drawable.ic_task_barrier_selected);
             btnBarriers.setTextColor(getResources().getColor(R.color.backgroundColor));
-            btnTasks.setBackgroundResource(R.drawable.ic_btn_rounded_unselected);
+            btnTasks.setBackgroundResource(R.color.transparentColor);
             btnTasks.setTextColor(getResources().getColor(R.color.gris_5));
             modeCardView.setVisibility(View.INVISIBLE);
             barriersCardView.setVisibility(View.VISIBLE);
