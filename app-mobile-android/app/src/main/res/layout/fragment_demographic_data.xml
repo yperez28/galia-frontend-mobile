@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/basic_data"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundColor">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:background="@android:color/transparent"
+            android:text="@string/sex"
+            android:textAppearance="@style/new_patient_form" />
+
+        <RadioGroup
+            android:id="@+id/gender_radio_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/gender"
+            android:layout_marginBottom="20dp">
+
+            <RadioButton
+                android:id="@+id/female"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/female"
+                android:textColor="@color/gris_5"
+                android:fontFamily="@font/inter_regular"
+                android:buttonTint="@color/radio_button"
+                android:paddingStart="6dp"
+                android:paddingEnd="6dp"
+                android:textSize="12.28sp"
+                android:checked="true"
+                android:textColorHighlight="@color/iris_60" />
+
+            <RadioButton
+                android:id="@+id/male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/male"
+                android:textColor="@color/gris_5"
+                android:fontFamily="@font/inter_regular"
+                android:buttonTint="@color/radio_button"
+                android:paddingStart="6dp"
+                android:paddingEnd="6dp"
+                android:textSize="12.28sp"
+                android:textColorHighlight="@color/iris_60" />
+
+            <RadioButton
+                android:id="@+id/other"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/other"
+                android:textColor="@color/gris_5"
+                android:fontFamily="@font/inter_regular"
+                android:buttonTint="@color/radio_button"
+                android:paddingStart="6dp"
+                android:paddingEnd="6dp"
+                android:textSize="12.28sp"
+                android:textColorHighlight="@color/iris_60" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/nationality"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/gender_radio_group"
+            android:layout_marginBottom="5dp"
+            android:background="@android:color/transparent"
+            android:text="@string/nationality"
+            android:textAppearance="@style/new_patient_form" />
+
+        <RadioGroup
+            android:id="@+id/nationality_selection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/nationality"
+            android:layout_marginBottom="20dp">
+
+            <RadioButton
+                android:id="@+id/costa_rican"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/costa_rican"
+                android:textColor="@color/gris_5"
+                android:fontFamily="@font/inter_regular"
+                android:buttonTint="@color/radio_button"
+                android:textSize="12.28sp"
+                android:checked="true"
+                android:paddingStart="6dp"
+                android:paddingEnd="6dp"
+                android:textColorHighlight="@color/iris_60" />
+
+            <RadioButton
+                android:id="@+id/nicaraguan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/nicaraguan"
+                android:textColor="@color/gris_5"
+                android:fontFamily="@font/inter_regular"
+                android:buttonTint="@color/radio_button"
+                android:paddingStart="6dp"
+                android:paddingEnd="6dp"
+                android:textSize="12.28sp"
+                android:textColorHighlight="@color/iris_60" />
+
+            <RadioButton
+                android:id="@+id/other_nationality"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/other"
+                android:textColor="@color/gris_5"
+                android:fontFamily="@font/inter_regular"
+                android:buttonTint="@color/radio_button"
+                android:paddingStart="6dp"
+                android:paddingEnd="6dp"
+                android:textSize="12.28sp"
+                android:textColorHighlight="@color/iris_60" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/civil_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nationality_selection"
+            android:layout_marginBottom="5dp"
+            android:background="@android:color/transparent"
+            android:text="@string/civil_status"
+            android:textAppearance="@style/new_patient_form" />
+
+        <RelativeLayout
+            android:id="@+id/civil_status_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/civil_status"
+            android:layout_marginBottom="30dp" >
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/civil_status_input"
+                android:layout_width="match_parent"
+                android:layout_height="34.73dp"
+                android:layout_marginEnd="9dp"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/civil_status_edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="12.28sp"
+                    android:textColor="@color/gris_2"
+                    android:fontFamily="@font/inter_regular"
+                    android:hint="@string/civil_status_select"
+                    android:textColorHint="@color/form_edittext_text_color"
+                    android:textColorHighlight="@color/iris_60"
+                    android:textCursorDrawable="@drawable/ic_cursor"
+                    android:background="@drawable/ic_form_edittext"
+                    android:drawableEnd="@drawable/ic_dropdown_icon"
+                    android:drawableTint="@color/form_edittext_text_color"
+                    android:focusable="false"
+                    android:clickable="true"
+                    android:inputType="none" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/civil_status_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="208.38dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="9dp"
+                android:layout_below="@+id/civil_status_input"
+                android:background="@drawable/ic_form_edittext"
+                android:scrollbars="vertical"
+                android:visibility="gone">
+            </androidx.recyclerview.widget.RecyclerView>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/health_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/civil_status_layout"
+            android:layout_marginBottom="8dp"
+            android:background="@android:color/transparent"
+            android:text="@string/health_area"
+            android:textAppearance="@style/new_patient_form" />
+
+        <RelativeLayout
+            android:id="@+id/health_center_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/health_center"
+            android:layout_marginBottom="30dp" >
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/health_center_input"
+                android:layout_width="match_parent"
+                android:layout_height="34.73dp"
+                android:layout_marginEnd="9dp"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/health_center_edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="12.28sp"
+                    android:textColor="@color/gris_2"
+                    android:fontFamily="@font/inter_regular"
+                    android:hint="@string/health_center_select"
+                    android:textColorHint="@color/form_edittext_text_color"
+                    android:textColorHighlight="@color/iris_60"
+                    android:textCursorDrawable="@drawable/ic_cursor"
+                    android:background="@drawable/ic_form_edittext"
+                    android:drawableEnd="@drawable/ic_dropdown_icon"
+                    android:drawableTint="@color/form_edittext_text_color"
+                    android:focusable="false"
+                    android:clickable="true"
+                    android:inputType="none" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/health_center_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="208.38dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="9dp"
+                android:layout_below="@+id/health_center_input"
+                android:background="@drawable/ic_form_edittext"
+                android:scrollbars="vertical"
+                android:visibility="gone">
+            </androidx.recyclerview.widget.RecyclerView>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/schoolarship"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_below="@id/health_center_layout"
+            android:background="@android:color/transparent"
+            android:text="@string/scholarship"
+            android:textAppearance="@style/new_patient_form" />
+
+        <RelativeLayout
+            android:id="@+id/schoolarship_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/schoolarship"
+            android:layout_marginBottom="30dp" >
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/schoolarship_input"
+                android:layout_width="match_parent"
+                android:layout_height="34.73dp"
+                android:layout_marginEnd="9dp"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/schoolarship_edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="12.28sp"
+                    android:textColor="@color/gris_2"
+                    android:fontFamily="@font/inter_regular"
+                    android:hint="@string/schoolarship_select"
+                    android:textColorHint="@color/form_edittext_text_color"
+                    android:textColorHighlight="@color/iris_60"
+                    android:textCursorDrawable="@drawable/ic_cursor"
+                    android:background="@drawable/ic_form_edittext"
+                    android:drawableEnd="@drawable/ic_dropdown_icon"
+                    android:drawableTint="@color/form_edittext_text_color"
+                    android:focusable="false"
+                    android:clickable="true"
+                    android:inputType="none" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/schoolarship_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="208.38dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="9dp"
+                android:layout_below="@+id/schoolarship_input"
+                android:background="@drawable/ic_form_edittext"
+                android:scrollbars="vertical"
+                android:visibility="gone">
+            </androidx.recyclerview.widget.RecyclerView>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/occupation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_below="@id/schoolarship_layout"
+            android:background="@android:color/transparent"
+            android:text="@string/ocupation"
+            android:textAppearance="@style/new_patient_form" />
+
+        <RelativeLayout
+            android:id="@+id/occupation_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/occupation"
+            android:layout_marginBottom="30dp" >
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/occupation_input"
+                android:layout_width="match_parent"
+                android:layout_height="34.73dp"
+                android:layout_marginEnd="9dp"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/occupation_edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="12.28sp"
+                    android:textColor="@color/gris_2"
+                    android:fontFamily="@font/inter_regular"
+                    android:hint="@string/occupation_select"
+                    android:textColorHint="@color/form_edittext_text_color"
+                    android:textColorHighlight="@color/iris_60"
+                    android:textCursorDrawable="@drawable/ic_cursor"
+                    android:background="@drawable/ic_form_edittext"
+                    android:drawableEnd="@drawable/ic_dropdown_icon"
+                    android:drawableTint="@color/form_edittext_text_color"
+                    android:focusable="false"
+                    android:clickable="true"
+                    android:inputType="none" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/occupation_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="208.38dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="9dp"
+                android:layout_below="@+id/occupation_input"
+                android:background="@drawable/ic_form_edittext"
+                android:scrollbars="vertical"
+                android:visibility="gone">
+            </androidx.recyclerview.widget.RecyclerView>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/insurance_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_below="@id/occupation_layout"
+            android:background="@android:color/transparent"
+            android:text="@string/insurance_type"
+            android:textAppearance="@style/new_patient_form" />
+
+        <RelativeLayout
+            android:id="@+id/insurance_type_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/insurance_type"
+            android:layout_marginBottom="30dp" >
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/insurance_type_input"
+                android:layout_width="match_parent"
+                android:layout_height="34.73dp"
+                android:layout_marginEnd="9dp"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/insurance_type_edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="12.28sp"
+                    android:textColor="@color/gris_2"
+                    android:fontFamily="@font/inter_regular"
+                    android:hint="@string/insurance_type_select"
+                    android:textColorHint="@color/form_edittext_text_color"
+                    android:textColorHighlight="@color/iris_60"
+                    android:textCursorDrawable="@drawable/ic_cursor"
+                    android:background="@drawable/ic_form_edittext"
+                    android:drawableEnd="@drawable/ic_dropdown_icon"
+                    android:drawableTint="@color/form_edittext_text_color"
+                    android:focusable="false"
+                    android:clickable="true"
+                    android:inputType="none" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/insurance_type_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="9dp"
+                android:layout_below="@+id/insurance_type_input"
+                android:background="@drawable/ic_form_edittext"
+                android:scrollbars="vertical"
+                android:visibility="gone">
+            </androidx.recyclerview.widget.RecyclerView>
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/demographics_previous"
+            android:layout_width="95dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/insurance_type_layout"
+            android:layout_toStartOf="@+id/demographics_next"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/ic_form_buttons"
+            android:fontFamily="@font/inter_regular"
+            android:text="@string/previous"
+            android:textAllCaps="false"
+            android:textColor="@color/gris_6"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/demographics_next"
+            android:layout_width="95dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/insurance_type_layout"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/ic_form_buttons"
+            android:fontFamily="@font/inter_regular"
+            android:text="@string/next"
+            android:textAllCaps="false"
+            android:textColor="@color/gris_6"
+            android:textSize="16sp" />
+    </RelativeLayout>
+</ScrollView>

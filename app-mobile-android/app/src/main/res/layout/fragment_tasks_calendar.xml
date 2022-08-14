@@ -74,9 +74,9 @@
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
                     android:drawableStart="@drawable/ic_plus_symbol"
+                    android:drawablePadding="10dp"
                     android:fontFamily="@font/inter_semibold"
-                    android:paddingStart="5dp"
-                    android:text="   Agregar tarea"
+                    android:text="Agregar tarea"
                     android:textAllCaps="false"
                     android:textSize="12sp"
                     android:textColor="@color/gris_5" />

@@ -1,6 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Galiaappmobile" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.Galiaappmobile" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorAccent">@color/iris_100</item>
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/fuchsia_100</item>
         <item name="colorPrimaryVariant">@color/fuchsia_80</item>
@@ -8,6 +9,5 @@
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/main_titles_login</item>
         <item name="colorSecondaryVariant">@color/fuchsia_60</item>
-
     </style>
 </resources>

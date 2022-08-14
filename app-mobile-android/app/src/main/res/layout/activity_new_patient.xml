@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
+    tools:context=".NewPatientActivity">
+
+    <RelativeLayout
+        android:id="@+id/title_bar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/backgroundColor"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_content_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/left_margin"
+        app:layout_constraintTop_toBottomOf="@+id/top_content_title">
+
+        <TextView
+            android:id="@+id/fragment_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/inter_bold"
+            android:text="@string/new_patient"
+            android:textColor="@color/gris_2"
+            android:textSize="17.5sp" />
+
+        <ImageButton
+            android:id="@+id/close_patient_view"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_close_icon" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/step_progress_bar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="11dp"
+        app:layout_constraintBottom_toTopOf="@+id/top_step_bar_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/left_margin"
+        app:layout_constraintTop_toBottomOf="@+id/title_bar">
+
+        <ImageView
+            android:id="@+id/first_step"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_step_progress_bar" />
+        <ImageView
+            android:id="@+id/first_step_complete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignStart="@id/first_step"
+            android:visibility="invisible"
+            android:elevation="4dp"
+            android:src="@drawable/ic_stepbar_complete_step" />
+        <View
+            android:id="@+id/first_divider"
+            android:layout_width="94dp"
+            android:layout_height="2dp"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/first_step"
+            android:background="@color/iris_100" />
+        <ImageView
+            android:id="@+id/second_step"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/first_divider"
+            android:src="@drawable/ic_step_progress_bar" />
+        <ImageView
+            android:id="@+id/second_step_complete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignStart="@id/second_step"
+            android:visibility="invisible"
+            android:elevation="4dp"
+            android:src="@drawable/ic_stepbar_complete_step" />
+        <View
+            android:id="@+id/second_divider"
+            android:layout_width="94dp"
+            android:layout_height="2dp"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/second_step"
+            android:background="@color/iris_60" />
+        <ImageView
+            android:id="@+id/third_step"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/second_divider"
+            android:src="@drawable/ic_step_progress_bar" />
+        <ImageView
+            android:id="@+id/third_step_complete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignStart="@id/third_step"
+            android:visibility="invisible"
+            android:elevation="4dp"
+            android:src="@drawable/ic_stepbar_complete_step" />
+        <View
+            android:id="@+id/third_divider"
+            android:layout_width="94dp"
+            android:layout_height="2dp"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/third_step"
+            android:background="@color/iris_60" />
+        <ImageView
+            android:id="@+id/fourth_step"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/third_divider"
+            android:src="@drawable/ic_step_progress_bar" />
+        <ImageView
+            android:id="@+id/fourth_step_complete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignStart="@id/fourth_step"
+            android:visibility="invisible"
+            android:elevation="4dp"
+            android:src="@drawable/ic_stepbar_complete_step" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/step_counter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_bold"
+        android:text="Paso 1 de 4"
+        android:textColor="@color/iris_100"
+        android:textSize="10sp"
+        app:layout_constraintStart_toEndOf="@id/left_margin"
+        app:layout_constraintTop_toBottomOf="@id/top_step_bar_title" />
+
+    <RelativeLayout
+        android:id="@+id/subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:background="@drawable/ic_fragment_title"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_fragment_content_title"
+        app:layout_constraintStart_toEndOf="@id/left_margin"
+        app:layout_constraintTop_toBottomOf="@+id/top_fragment_content_title">
+
+        <TextView
+            android:id="@+id/fragment_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/inter_bold"
+            android:text="@string/basic_data"
+            android:textColor="@color/gris_2"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/patient_data_fragment"
+        android:name="com.pnp.galia_app_mobile.BasicDataFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/og_fuchsia"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/left_margin"
+        app:layout_constraintTop_toBottomOf="@id/top_fragment"
+        tools:layout="@layout/fragment_tasks_list" />
+
+    <RelativeLayout
+        android:id="@+id/popup_success"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#BAF2F2F2"
+        android:visibility="invisible">
+
+        <RelativeLayout
+            android:layout_width="330dp"
+            android:layout_height="194dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:elevation="4dp"
+            android:background="@drawable/ic_rounded_button"
+            android:backgroundTint="@color/backgroundColor">
+            <ImageView
+                android:id="@+id/status_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="40dp"
+                android:src="@drawable/ic_check_circle"/>
+            <TextView
+                android:id="@+id/message"
+                android:layout_width="200dp"
+                android:layout_height="57dp"
+                android:layout_toEndOf="@+id/status_icon"
+                android:layout_alignTop="@+id/status_icon"
+                android:fontFamily="@font/inter_bold"
+                android:lineSpacingExtra="10dp"
+                android:text="@string/success_quote"
+                android:textColor="@color/gris_2"
+                android:textSize="17.5sp"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true">
+                <Button
+                    android:id="@+id/cancel"
+                    android:layout_width="100dp"
+                    android:layout_height="35dp"
+                    android:layout_marginEnd="11dp"
+                    android:text="@string/cancel"
+                    android:textColor="@color/gris_6"
+                    android:textAllCaps="false"
+                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/ic_rounded_button"
+                    android:backgroundTint="@color/iris_60"/>
+
+                <Button
+                    android:id="@+id/ready"
+                    android:layout_width="100dp"
+                    android:layout_height="35dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/ic_rounded_button"
+                    android:backgroundTint="@color/iris_100"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="@string/ready"
+                    android:textAllCaps="false"
+                    android:textColor="@color/gris_6" />
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/popup_failure"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#BAF2F2F2"
+        android:visibility="invisible">
+        <RelativeLayout
+            android:layout_width="330dp"
+            android:layout_height="194dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:elevation="4dp"
+            android:background="@drawable/ic_rounded_button"
+            android:backgroundTint="@color/backgroundColor">
+            <ImageView
+                android:id="@+id/status_icon_failure"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="40dp"
+                android:src="@drawable/ic_failure_icon"/>
+            <TextView
+                android:id="@+id/message_failure"
+                android:layout_width="200dp"
+                android:layout_height="57dp"
+                android:layout_toEndOf="@+id/status_icon_failure"
+                android:layout_alignTop="@+id/status_icon_failure"
+                android:fontFamily="@font/inter_bold"
+                android:lineSpacingExtra="10dp"
+                android:text="@string/failure_quote"
+                android:textColor="@color/gris_2"
+                android:textSize="17.5sp"/>
+            <TextView
+                android:id="@+id/second_message_failure"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/status_icon_failure"
+                android:layout_below="@+id/message_failure"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/inter_bold"
+                android:text="@string/try_again"
+                android:textColor="@color/gris_5"
+                android:textSize="12sp"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true">
+                <Button
+                    android:id="@+id/cancel_failure"
+                    android:layout_width="100dp"
+                    android:layout_height="35dp"
+                    android:layout_marginEnd="10dp"
+                    android:text="@string/cancel"
+                    android:textColor="@color/gris_6"
+                    android:textAllCaps="false"
+                    android:fontFamily="@font/inter_regular"
+                    android:background="@drawable/ic_rounded_button"
+                    android:backgroundTint="@color/iris_60"/>
+
+                <Button
+                    android:id="@+id/go_back"
+                    android:layout_width="100dp"
+                    android:layout_height="35dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/ic_rounded_button"
+                    android:backgroundTint="@color/iris_100"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="@string/go_back"
+                    android:textAllCaps="false"
+                    android:textColor="@color/gris_6" />
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/left_margin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/top_fragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.32" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/top_content_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.03" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/bottom_content_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.07" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/top_fragment_content_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.22" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/bottom_fragment_content_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.275" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/top_step_bar_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.165" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

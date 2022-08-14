@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/basic_data"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundColor">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:background="@android:color/transparent"
+            android:text="@string/join_date"
+            android:textAppearance="@style/new_patient_form" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/join_date"
+            android:layout_width="155dp"
+            android:layout_height="34.73dp"
+            android:layout_below="@+id/gender"
+            android:layout_marginBottom="15dp"
+            app:hintEnabled="false">
+
+            <EditText
+                android:id="@+id/join_date_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/gris_2"
+                android:fontFamily="@font/inter_regular"
+                android:textSize="12.28sp"
+                android:background="@drawable/ic_form_edittext"
+                android:textColorHighlight="@color/iris_60"
+                android:textColorHint="@color/form_edittext_text_color"
+                android:textCursorDrawable="@drawable/ic_cursor"
+                android:drawableStart="@drawable/ic_calendar_new_patient"
+                android:drawablePadding="5dp"
+                android:inputType="date"
+                android:focusable="false"
+                android:clickable="true"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/patient_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/join_date"
+            android:layout_marginBottom="8dp"
+            android:background="@android:color/transparent"
+            android:text="@string/nameMandatory"
+            android:textAppearance="@style/new_patient_form" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/patient_name_input"
+            android:layout_width="match_parent"
+            android:layout_height="34.73dp"
+            android:layout_below="@+id/patient_name"
+            android:layout_marginBottom="15dp"
+            android:layout_marginEnd="9dp"
+            app:hintEnabled="false">
+
+            <EditText
+                android:id="@+id/patient_name_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="12.28sp"
+                android:textColor="@color/gris_2"
+                android:fontFamily="@font/inter_regular"
+                android:hint="Digite el nombre de la paciente"
+                android:textColorHint="@color/form_edittext_text_color"
+                android:textColorHighlight="@color/iris_60"
+                android:textCursorDrawable="@drawable/ic_cursor"
+                android:background="@drawable/ic_form_edittext"
+                android:inputType="text"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/first_lastname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/patient_name_input"
+            android:layout_marginBottom="8dp"
+            android:background="@android:color/transparent"
+            android:text="@string/first_lastname"
+            android:textAppearance="@style/new_patient_form" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/first_lastname_input"
+            android:layout_width="match_parent"
+            android:layout_height="34.73dp"
+            android:layout_below="@+id/first_lastname"
+            android:layout_marginBottom="15dp"
+            android:layout_marginEnd="9dp"
+            app:hintEnabled="false">
+
+            <EditText
+                android:id="@+id/first_lastname_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="12.28sp"
+                android:textColor="@color/gris_2"
+                android:fontFamily="@font/inter_regular"
+                android:hint="Digite el primer apellido de la paciente"
+                android:textColorHint="@color/form_edittext_text_color"
+                android:textColorHighlight="@color/iris_60"
+                android:textCursorDrawable="@drawable/ic_cursor"
+                android:background="@drawable/ic_form_edittext"
+                android:inputType="text"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/second_lastname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/first_lastname_input"
+            android:layout_marginBottom="8dp"
+            android:background="@android:color/transparent"
+            android:text="@string/second_lastname"
+            android:textAppearance="@style/new_patient_form" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/second_lastname_input"
+            android:layout_width="match_parent"
+            android:layout_height="34.73dp"
+            android:layout_below="@+id/second_lastname"
+            android:layout_marginBottom="15dp"
+            android:layout_marginEnd="9dp"
+            app:hintEnabled="false">
+
+            <EditText
+                android:id="@+id/second_lastname_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="12.28sp"
+                android:textColor="@color/gris_2"
+                android:fontFamily="@font/inter_regular"
+                android:hint="Digite el segundo apellido de la paciente"
+                android:textColorHint="@color/form_edittext_text_color"
+                android:textColorHighlight="@color/iris_60"
+                android:textCursorDrawable="@drawable/ic_cursor"
+                android:background="@drawable/ic_form_edittext"
+                android:inputType="text"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:id="@+id/patient_info_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/second_lastname_input">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/patient_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:background="@android:color/transparent"
+                    android:text="@string/person_id"
+                    android:textAppearance="@style/new_patient_form" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/patient_id_input"
+                    android:layout_width="155dp"
+                    android:layout_height="34.73dp"
+                    android:layout_below="@+id/patient_id"
+                    android:layout_marginBottom="15dp"
+                    app:hintEnabled="false">
+
+                    <EditText
+                        android:id="@+id/patient_id_edittext"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textSize="12.28sp"
+                        android:textColor="@color/gris_2"
+                        android:fontFamily="@font/inter_regular"
+                        android:hint="Digite la cédula"
+                        android:textColorHint="@color/form_edittext_text_color"
+                        android:textColorHighlight="@color/iris_60"
+                        android:textCursorDrawable="@drawable/ic_cursor"
+                        android:background="@drawable/ic_form_edittext"
+                        android:inputType="number"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="22dp">
+
+                <TextView
+                    android:id="@+id/patient_cellphone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:background="@android:color/transparent"
+                    android:text="@string/cellphone_mandatory"
+                    android:textAppearance="@style/new_patient_form" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/patient_cellphone_input"
+                    android:layout_width="155dp"
+                    android:layout_height="34.73dp"
+                    android:layout_below="@+id/patient_cellphone"
+                    android:layout_marginBottom="15dp"
+                    app:hintEnabled="false">
+
+                    <EditText
+                        android:id="@+id/patient_cellphone_edittext"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textColor="@color/gris_2"
+                        android:fontFamily="@font/inter_regular"
+                        android:textSize="12.28sp"
+                        android:hint="Digite celular"
+                        android:textColorHint="@color/form_edittext_text_color"
+                        android:textColorHighlight="@color/iris_60"
+                        android:textCursorDrawable="@drawable/ic_cursor"
+                        android:background="@drawable/ic_form_edittext"
+                        android:inputType="phone"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/patient_info_container_two"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/patient_info_container">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/patient_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:background="@android:color/transparent"
+                    android:text="@string/phone"
+                    android:textAppearance="@style/new_patient_form" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/phone_number_input"
+                    android:layout_width="155dp"
+                    android:layout_height="34.73dp"
+                    android:layout_below="@+id/patient_phone"
+                    android:layout_marginBottom="15dp"
+                    app:hintEnabled="false">
+
+                <EditText
+                    android:id="@+id/phone_number_edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/gris_2"
+                    android:fontFamily="@font/inter_regular"
+                    android:textSize="12.28sp"
+                    android:hint="Digite teléfono"
+                    android:textColorHint="@color/form_edittext_text_color"
+                    android:textColorHighlight="@color/iris_60"
+                    android:textCursorDrawable="@drawable/ic_cursor"
+                    android:background="@drawable/ic_form_edittext"
+                    android:inputType="phone"
+                    />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="22dp">
+                <TextView
+                    android:id="@+id/birth_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:background="@android:color/transparent"
+                    android:text="@string/birth_date"
+                    android:textAppearance="@style/new_patient_form" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/birth_date_input"
+                    android:layout_width="155dp"
+                    android:layout_height="34.73dp"
+                    android:layout_below="@+id/birth_date"
+                    android:layout_marginBottom="15dp"
+                    app:hintEnabled="false">
+
+                    <EditText
+                        android:id="@+id/birth_date_edittext"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textColor="@color/gris_2"
+                        android:fontFamily="@font/inter_regular"
+                        android:textSize="12.28sp"
+                        android:background="@drawable/ic_form_edittext"
+                        android:textColorHighlight="@color/iris_60"
+                        android:textColorHint="@color/form_edittext_text_color"
+                        android:textCursorDrawable="@drawable/ic_cursor"
+                        android:drawableStart="@drawable/ic_calendar_new_patient"
+                        android:drawablePadding="5dp"
+                        android:inputType="date"
+                        android:focusable="false"
+                        android:clickable="true"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/next"
+            android:layout_width="95dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/patient_info_container_two"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="20dp"
+            android:enabled="false"
+            android:background="@drawable/ic_form_buttons"
+            android:fontFamily="@font/inter_regular"
+            android:text="@string/next"
+            android:textAllCaps="false"
+            android:textColor="@color/gris_6"
+            android:textSize="16sp" />
+    </RelativeLayout>
+</ScrollView>

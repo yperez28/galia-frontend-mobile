@@ -30,4 +30,14 @@
         <item name="android:textSize">14sp</item>
     </style>
 
+    <style name="new_patient_form">
+        <item name="android:textSize">12.28sp</item>
+        <item name="fontFamily">@font/inter_bold</item>
+        <item name="android:textColor">@color/gris_2</item>
+    </style>
+
+    <style name="date_picker_theme">
+        <item name="colorAccent">@color/iris_100</item>
+    </style>
+
 </resources>
