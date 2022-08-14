@@ -1,5 +1,7 @@
 package com.pnp.galia_app_mobile;
 
+import androidx.annotation.NonNull;
+
 import java.util.Date;
 
 public class Task {
@@ -87,6 +89,7 @@ public class Task {
         this.asignTo = asignTo;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return "Task{" +

@@ -20,9 +20,8 @@ public class BarrierAdapter extends RecyclerView.Adapter<BarrierAdapter.ViewHold
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View listItem= layoutInflater.inflate(R.layout.barrier_content, parent, false);
-        ViewHolder viewHolder = new ViewHolder(listItem);
 
-        return viewHolder;
+        return new ViewHolder(listItem);
     }
 
     @Override
@@ -30,7 +29,7 @@ public class BarrierAdapter extends RecyclerView.Adapter<BarrierAdapter.ViewHold
         holder.barrierName.setText(barrierList[position].getName());
         holder.patientName.setText(barrierList[position].getPatient());
         holder.priorityDescription.setText(barrierList[position].getPriority());
-        holder.clasificationName.setText(barrierList[position].getClasification());
+        holder.clasificationName.setText(barrierList[position].getClassification());
         holder.typeDescription.setText(barrierList[position].getType());
         holder.codeDescription.setText(barrierList[position].getCode());
 

@@ -10,15 +10,12 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
-import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
 
 import org.threeten.bp.LocalDate;
 import org.threeten.bp.format.DateTimeFormatter;
@@ -26,19 +23,8 @@ import org.threeten.bp.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Locale;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link TasksCalendarFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class TasksCalendarFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
     private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("EEEE d", new Locale("es", "ES"));
@@ -51,31 +37,17 @@ public class TasksCalendarFragment extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment TasksCalendarFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static TasksCalendarFragment newInstance(String param1, String param2) {
+    public static TasksCalendarFragment newInstance(Bundle arguments) {
         TasksCalendarFragment fragment = new TasksCalendarFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
+        if (arguments != null) {
+            fragment.setArguments(arguments);
+        }
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
@@ -98,19 +70,16 @@ public class TasksCalendarFragment extends Fragment {
 
         final LocalDate instance = LocalDate.now();
         calendar.setSelectedDate(instance);
-        calendar.setOnDateChangedListener(new OnDateSelectedListener() {
-            @Override
-            public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
-                String day = FORMATTER.format(date.getDate());
-                String finalDay = day.substring(0, 1).toUpperCase() + day.substring(1);
+        calendar.setOnDateChangedListener((widget, date, selected) -> {
+            String day = FORMATTER.format(date.getDate());
+            String finalDay = day.substring(0, 1).toUpperCase() + day.substring(1);
 
-                selectedDay.setText(selected ? finalDay : "Seleccione una fecha");
+            selectedDay.setText(selected ? finalDay : "Seleccione una fecha");
 
-                addTaskHolder.setVisibility(View.VISIBLE);
+            addTaskHolder.setVisibility(View.VISIBLE);
 
-                Task[] taskList = new Task[] {new Task("1", "Tarea numero uno", "María Gutierrez L", "Preguntar sobre la situación de transporte", new Date(), "Alta", "Presencial", "Susana Cornejo"), new Task("2", "Tarea numero dos", "Sandra Castro J", "Conseguir teléfono de persona de contacto", new Date(), "Media", "Telefónico", "Andres Cornejo"), new Task("3", "Tarea numero tres", "Lucía López Ruíz", "Acompañar a quimioterapia", new Date(), "Baja", "Presencial", "Susana Cornejo")};
-                getVisibleView(taskList);
-            }
+            Task[] taskList = new Task[] {new Task("1", "Tarea numero uno", "María Gutierrez L", "Preguntar sobre la situación de transporte", new Date(), "Alta", "Presencial", "Susana Cornejo"), new Task("2", "Tarea numero dos", "Sandra Castro J", "Conseguir teléfono de persona de contacto", new Date(), "Media", "Telefónico", "Andres Cornejo"), new Task("3", "Tarea numero tres", "Lucía López Ruíz", "Acompañar a quimioterapia", new Date(), "Baja", "Presencial", "Susana Cornejo")};
+            getVisibleView(taskList);
         });
 
         addTaskButton.setOnClickListener(view -> {

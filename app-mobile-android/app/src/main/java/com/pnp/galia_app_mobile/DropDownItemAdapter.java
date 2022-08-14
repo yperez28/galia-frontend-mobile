@@ -24,9 +24,8 @@ public class DropDownItemAdapter extends RecyclerView.Adapter<DropDownItemAdapte
     public DropDownItemAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View listItem= layoutInflater.inflate(R.layout.dropdown_content, parent, false);
-        DropDownItemAdapter.ViewHolder viewHolder = new DropDownItemAdapter.ViewHolder(listItem);
 
-        return viewHolder;
+        return new ViewHolder(listItem);
     }
 
     @Override

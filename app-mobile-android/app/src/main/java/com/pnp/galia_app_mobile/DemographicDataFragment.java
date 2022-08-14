@@ -47,11 +47,11 @@ public class DemographicDataFragment extends Fragment {
     private final String[] occupation = {"Ama de casa", "Estudiante", "Pensionada", "Trabajadora formal", "Trabajadora informal"};
     private final String[] insuranceType = {"Directo", "Estado", "Familiar", "Pensionada", "Voluntario"};
 
-    private DropDownItemAdapter CivilStatusAdapter = new DropDownItemAdapter(civilStatus);
-    private DropDownItemAdapter HealthCareAdapter = new DropDownItemAdapter(healthCare);
-    private DropDownItemAdapter ScholarshipAdapter = new DropDownItemAdapter(scholarship);
-    private DropDownItemAdapter OccupationAdapter = new DropDownItemAdapter(occupation);
-    private DropDownItemAdapter InsuranceTypeAdapter = new DropDownItemAdapter(insuranceType);
+    private final DropDownItemAdapter CivilStatusAdapter = new DropDownItemAdapter(civilStatus);
+    private final DropDownItemAdapter HealthCareAdapter = new DropDownItemAdapter(healthCare);
+    private final DropDownItemAdapter ScholarshipAdapter = new DropDownItemAdapter(scholarship);
+    private final DropDownItemAdapter OccupationAdapter = new DropDownItemAdapter(occupation);
+    private final DropDownItemAdapter InsuranceTypeAdapter = new DropDownItemAdapter(insuranceType);
 
     public DemographicDataFragment() {
     }

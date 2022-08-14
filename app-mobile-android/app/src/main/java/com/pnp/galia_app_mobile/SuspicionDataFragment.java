@@ -41,8 +41,8 @@ public class SuspicionDataFragment extends Fragment {
     private final String[] suspicionType = {"Autoexamen", "Control de rutina (incluye mmg y us)", "Sintomatología", "Otro"};
     private final String[] suspicionPlace = {"Charla", "Consulta externa", "En consultorio", "Oficina de navegación", "Sesión de mama", "Visita al salón", "Otro"};
 
-    private DropDownItemAdapter TypeAdapter = new DropDownItemAdapter(suspicionType);
-    private DropDownItemAdapter PlaceAdapter = new DropDownItemAdapter(suspicionPlace);
+    private final DropDownItemAdapter TypeAdapter = new DropDownItemAdapter(suspicionType);
+    private final DropDownItemAdapter PlaceAdapter = new DropDownItemAdapter(suspicionPlace);
 
     public SuspicionDataFragment() {
     }

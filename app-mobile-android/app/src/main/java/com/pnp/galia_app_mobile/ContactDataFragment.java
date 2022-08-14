@@ -44,10 +44,10 @@ public class ContactDataFragment extends Fragment {
     private final String[] canton = {"Alajuela Central", "Atenas", "Grecia", "Guatuso", "Los Chiles", "Naranjo", "Oreamuno"};
     private final String[] contactRelationship = {"Esposo / Esposa", "Papá / Mamá", "Hijo / Hija", "Hermano / Hermana", "Nieto / Nieta", "Sobrino / Sobrina", "Cuñado / Cuñada", "Yerno / Nuera", "Vecino (a) / Amigo (a)", "Otro"};
 
-    private DropDownItemAdapter ProvinceAdapter = new DropDownItemAdapter(province);
-    private DropDownItemAdapter CantonAdapter = new DropDownItemAdapter(canton);
-    private DropDownItemAdapter ContactOneAdapter = new DropDownItemAdapter(contactRelationship);
-    private DropDownItemAdapter ContactTwoAdapter = new DropDownItemAdapter(contactRelationship);
+    private final DropDownItemAdapter ProvinceAdapter = new DropDownItemAdapter(province);
+    private final DropDownItemAdapter CantonAdapter = new DropDownItemAdapter(canton);
+    private final DropDownItemAdapter ContactOneAdapter = new DropDownItemAdapter(contactRelationship);
+    private final DropDownItemAdapter ContactTwoAdapter = new DropDownItemAdapter(contactRelationship);
 
     public ContactDataFragment() {
     }

@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Theme.Galiaappmobile" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorAccent">@color/iris_100</item>
