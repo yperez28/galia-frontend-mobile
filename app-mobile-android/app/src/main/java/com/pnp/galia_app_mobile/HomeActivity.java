@@ -23,6 +23,8 @@ import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
@@ -51,6 +53,7 @@ public class HomeActivity extends AppCompatActivity
     private Button btnTasks;
     private Button btnBarriers;
     private boolean clicked = false;
+    private boolean notificationOpen = false;
 
     private DrawerLayout drawerLayout;
     private RelativeLayout toolBarIcons;
@@ -58,7 +61,14 @@ public class HomeActivity extends AppCompatActivity
     private CardView modeCardView;
     private CardView barriersCardView;
     private CardView selectedCardView;
+    private TextView notificationCounter;
+    private int notification_number_counter = 0;
+    private RecyclerView notificationRecycler;
+    private TextView readNotifications;
+
     private Toolbar toolbar;
+
+    private Notification[] notificationList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -119,9 +129,11 @@ public class HomeActivity extends AppCompatActivity
         btnTasks = findViewById(R.id.btn_tasks);
         btnBarriers = findViewById(R.id.btn_barriers);
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
+        notificationCounter = findViewById(R.id.notification_counter);
+        notificationRecycler = findViewById(R.id.notifications_recycler);
+        readNotifications = findViewById(R.id.read_notifications);
 
-        toolBarIcons.setOnClickListener(view -> Toast.makeText(HomeActivity.this,"Icon clicked",Toast.LENGTH_SHORT).show());
+        FragmentManager fragmentManager = getSupportFragmentManager();
 
         listViewButton.setOnClickListener(view -> {
             fragmentManager.beginTransaction()
@@ -226,10 +238,36 @@ public class HomeActivity extends AppCompatActivity
         });
 
         homeIcon.setOnClickListener(view -> Toast.makeText(HomeActivity.this,"HOME ICON CLICKED",Toast.LENGTH_SHORT).show());
-        notificationsIcon.setOnClickListener(view -> Toast.makeText(HomeActivity.this,"NOTIFICATIONS ICON CLICKED",Toast.LENGTH_SHORT).show());
         searchIcon.setOnClickListener(view -> Toast.makeText(HomeActivity.this,"SEARCH ICON CLICKED",Toast.LENGTH_SHORT).show());
+
+        notificationsIcon.setOnClickListener(view -> {
+            LinearLayout notificationsContainer = findViewById(R.id.notification_layout);
+            if (!notificationOpen) {
+                notificationsContainer.setVisibility(View.VISIBLE);
+                notificationOpen = true;
+                notificationList = new Notification[] {new Notification("Tienes una tarea pendiente para hoy! Recuerda completarla", NotificationType.REMINDER, false, "Hace 2min"), new Notification("La Dra. Mariela Boñaños te ha asignado una nueva paciente.", NotificationType.NEW_PATIENT, false, "Hace 5min"), new Notification("La Dra. Mariela Boñaños te ha asignado una nueva tarea.", NotificationType.NEW_TASK, false, "Hace 14min"), new Notification("Tienes una tarea pendiente para hoy! Recuerda completarla", NotificationType.NEW_TASK, true, "Hace 2min"), new Notification("Tienes una tarea pendiente para hoy! Recuerda completarla", NotificationType.REMINDER, true, "Hace 2min"), new Notification("Tienes una tarea pendiente para hoy! Recuerda completarla", NotificationType.REMINDER, true, "Hace 2min"), new Notification("Tienes una tarea pendiente para hoy! Recuerda completarla", NotificationType.NEW_PATIENT, true, "Hace 2min")};
+                getNotifications(notificationList);
+            } else {
+                notificationsContainer.setVisibility(View.INVISIBLE);
+                notificationOpen = false;
+            }
+        });
+
+        readNotifications.setOnClickListener(view -> {
+            for (int i = 0; i < notificationList.length; i++) {
+                notificationList[i].setRead(true);
+                getNotifications(notificationList);
+            }
+        });
     }
-    
+
+    private void getNotifications(Notification[] notificationList) {
+        NotificationAdapter adapter = new NotificationAdapter(notificationList);
+        notificationRecycler.setHasFixedSize(true);
+        notificationRecycler.setAdapter(adapter);
+        notificationRecycler.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
+    }
+
     private void setVisibility(boolean clicked) {
         LinearLayout overlay = findViewById(R.id.floating_button_overlay);
         if (!clicked) {
