@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
@@ -19,6 +18,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.Date;
 
 public class TasksListFragment extends Fragment {
+    private RecyclerView recyclerViewTaskToDo;
+    private RecyclerView recyclerViewTaskComplete;
 
     public TasksListFragment() {
         // Required empty public constructor
