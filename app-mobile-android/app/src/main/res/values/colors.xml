@@ -11,6 +11,8 @@
     <color name="login_titles">#262626</color>
     <color name="og_fuchsia">#BA2C75</color>
     <color name="hyperlink">#074EE8</color>
+    <color name="notification_description">#363739</color>
+    <color name="notification_time">#9B9B9B</color>
 
     <!-- Figma Color Styles -->
     <!-- Fuchsia -->

@@ -10,7 +10,6 @@
     android:background="@color/backgroundColorTwo"
     tools:openDrawer="start">
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -37,8 +36,8 @@
             app:cardCornerRadius="21.51dp"
             app:cardElevation="4dp"
             app:layout_constraintBottom_toTopOf="@id/bottom_cardview_tasks"
-            app:layout_constraintLeft_toRightOf="@id/left_toolbar"
-            app:layout_constraintRight_toLeftOf="@id/right_toolbar"
+            app:layout_constraintLeft_toRightOf="@id/left_screen_margin"
+            app:layout_constraintRight_toLeftOf="@id/right_screen_margin"
             app:layout_constraintTop_toBottomOf="@id/top_cardview_tasks">
 
             <LinearLayout
@@ -48,27 +47,26 @@
 
                 <Button
                     android:id="@+id/btn_tasks"
-                    android:layout_width="165dp"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/ic_selected_rounded_button"
+                    android:layout_width="185dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/ic_task_barrier_selected"
                     android:fontFamily="@font/inter_bold"
-                    android:text="Tareas"
+                    android:text="@string/task"
                     android:textAllCaps="false"
                     android:textColor="@color/gris_6"
                     android:textSize="14sp" />
 
                 <Button
                     android:id="@+id/btn_barriers"
-                    android:layout_width="165dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="185dp"
+                    android:layout_height="match_parent"
                     android:background="@android:color/transparent"
                     android:fontFamily="@font/inter_bold"
-                    android:text="Barreras"
+                    android:text="@string/barriers"
+                    android:textAlignment="center"
                     android:textAllCaps="false"
                     android:textColor="@color/gris_5"
-                    android:textSize="14sp"
-                    app:layout_constraintLeft_toRightOf="@id/middle_screenview" />
-
+                    android:textSize="14sp" />
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
@@ -83,7 +81,8 @@
             app:cardElevation="4dp"
             app:layout_constraintEnd_toStartOf="@id/right_toolbar"
             app:layout_constraintStart_toEndOf="@id/left_toolbar"
-            app:layout_constraintTop_toBottomOf="@+id/top_cardview_barriers">
+            app:layout_constraintBottom_toTopOf="@id/bottom_cardview_list"
+            app:layout_constraintTop_toBottomOf="@+id/top_cardview_list">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -146,7 +145,8 @@
             app:cardElevation="4dp"
             app:layout_constraintEnd_toStartOf="@id/right_toolbar"
             app:layout_constraintStart_toEndOf="@id/left_toolbar"
-            app:layout_constraintTop_toBottomOf="@+id/top_cardview_barriers">
+            app:layout_constraintTop_toBottomOf="@+id/top_cardview_list"
+            app:layout_constraintBottom_toTopOf="@id/bottom_cardview_list">
 
 
             <LinearLayout
@@ -371,10 +371,10 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@+id/bottom_cardview_barriers"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_fragment_home"
             app:layout_constraintEnd_toStartOf="@+id/right_screen_margin"
             app:layout_constraintStart_toStartOf="@+id/left_screen_margin"
-            app:layout_constraintTop_toBottomOf="@id/bottom_fragment">
+            app:layout_constraintTop_toBottomOf="@id/top_fragment_home">
 
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/fragment_home_page"
@@ -383,6 +383,57 @@
                 android:layout_height="match_parent"
                 tools:layout="@layout/fragment_tasks_list" />
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/notification_layout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:elevation="10dp"
+            android:visibility="invisible"
+            android:background="@color/backgroundColor"
+            app:layout_constraintTop_toBottomOf="@id/toolbar_bottom"
+            app:layout_constraintBottom_toBottomOf="parent">
+            <RelativeLayout
+                android:id="@+id/notifications_title_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp">
+                <TextView
+                    android:id="@+id/notifications_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Notificaciones"
+                    android:textColor="@color/gris_2"
+                    android:textSize="17.5sp"
+                    android:fontFamily="@font/inter_bold" />
+                <TextView
+                    android:id="@+id/read_notifications"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:drawableLeft="@drawable/ic_double_check"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/read_notifications"
+                    android:fontFamily="@font/inter_bold"
+                    android:text="Marcar como leído"
+                    android:textColor="@color/read_notifications"
+                    android:textSize="14sp" />
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/notifications_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:background="@android:color/transparent"
+                android:scrollbars="none" >
+            </androidx.recyclerview.widget.RecyclerView>
         </LinearLayout>
 
         <androidx.constraintlayout.widget.Guideline
@@ -400,25 +451,39 @@
             app:layout_constraintGuide_percent="0.95" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/top_cardview_barriers"
+            android:id="@+id/top_cardview_list"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.24" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/bottom_cardview_barriers"
+            android:id="@+id/bottom_cardview_list"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.95" />
+            app:layout_constraintGuide_percent="0.28" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/top_fragment_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.31" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/bottom_fragment_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.99" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/toolbar_bottom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.07" />
+            app:layout_constraintGuide_percent="0.06" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/top_toolbar"
@@ -574,13 +639,6 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.21" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/bottom_fragment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.33" />
-
         <LinearLayout
             android:id="@+id/floating_button_overlay"
             android:layout_width="match_parent"
@@ -599,6 +657,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
@@ -609,34 +668,52 @@
             <RelativeLayout
                 android:id="@+id/option_icons_container"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent">
 
                 <ImageView
                     android:id="@+id/home_icon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
                     android:src="@drawable/ic_home_vector" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true" >
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:gravity="center">
 
-                    <ImageView
-                        android:id="@+id/notification_icon"
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignRight="@id/search_icon"
-                        android:layout_marginRight="15dp"
-                        android:src="@drawable/ic_notifications_icon" />
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:id="@+id/notification_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:textAlignment="center"
+                            android:tint="@color/mode_icon_color"
+                            android:src="@drawable/ic_notifications_icon" />
 
-                    <ImageView
-                        android:id="@+id/search_icon"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="20dp"
-                        android:src="@drawable/ic_search_vector" />
+                        <TextView
+                            android:id="@+id/notification_counter"
+                            android:layout_width="12dp"
+                            android:layout_height="12dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginStart="12dp"
+                            android:background="@drawable/ic_notification_icon"
+                            android:text="0"
+                            android:textAlignment="center"
+                            android:textColor="@color/backgroundColor"
+                            android:textSize="8sp"
+                            android:fontFamily="@font/inter_semibold"
+                            android:visibility="invisible"
+                            app:layout_constraintTop_toTopOf="@+id/notification_icon"
+                            app:layout_constraintEnd_toEndOf="@+id/notification_icon"
+                            app:layout_constraintStart_toStartOf="@+id/notification_icon" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
                 </LinearLayout>
 
             </RelativeLayout>

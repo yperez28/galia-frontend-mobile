@@ -34,7 +34,7 @@ public class BarriersAllFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View myView = inflater.inflate(R.layout.fragment_barriers_all, container, false);
-        recyclerView = myView.findViewById(R.id.barrier_recycler);
+        recyclerView = myView.findViewById(R.id.barrier_all_recycler);
 
         Barrier[] barrierList = new Barrier[] {new Barrier("1", "Ausencia de redes de apoyo", "B02", "Maria Gutierrez L", "Barrera numero uno", "Sociocultural", "Media", "Interna"), new Barrier("2", "Religión", "B07", "Lucía Brenes J", "Barrera numero dos", "Personal", "Alta", "Interna"), new Barrier("3", "Desestimación del caso", "B23", "Yolanda Rojas", "Barrera numero tres", "Serv.Salud", "Alta", "Externa"), new Barrier("4", "Variaciones del personal médico", "B27", "Miriam Ureña P", "Barrera numero cuatro", "Serv.Salud", "Baja", "Externa")};
         getVisibleView(barrierList);
@@ -43,7 +43,7 @@ public class BarriersAllFragment extends Fragment {
 
     private void getVisibleView(Barrier[] listBarriers) {
         if (listBarriers.length > 0) {
-            final float scale = getContext().getResources().getDisplayMetrics().density;
+            /*final float scale = getContext().getResources().getDisplayMetrics().density;
             int multiTask = (int) (75 * scale + 0.5f);
             int oneTask = (int) (156 * scale + 0.5f);
             if (listBarriers.length == 1) {
@@ -51,7 +51,7 @@ public class BarriersAllFragment extends Fragment {
             }
             else {
                 recyclerView.getLayoutParams().height = oneTask;
-            }
+            }*/
             BarrierAdapter adapter = new BarrierAdapter(listBarriers);
             recyclerView.setHasFixedSize(true);
             recyclerView.setAdapter(adapter);
