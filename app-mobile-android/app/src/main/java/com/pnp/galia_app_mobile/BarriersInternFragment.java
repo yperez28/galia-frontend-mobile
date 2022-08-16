@@ -4,19 +4,15 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
 
 import java.util.Objects;
 
 public class BarriersInternFragment extends Fragment {
+    private RecyclerView recyclerView;
 
     public BarriersInternFragment() {
         // Required empty public constructor
@@ -47,9 +43,9 @@ public class BarriersInternFragment extends Fragment {
     }
 
     private void getVisibleView(Barrier[] listBarriers) {
-        Barrier[] myFilterlistBarriers = filterBarriers(listBarriers);
-        if (myFilterlistBarriers.length > 0) {
-            BarrierAdapter adapter = new BarrierAdapter(myFilterlistBarriers);
+        Barrier[] myFilterListBarriers = filterBarriers(listBarriers);
+        if (myFilterListBarriers.length > 0) {
+            BarrierAdapter adapter = new BarrierAdapter(myFilterListBarriers);
             recyclerView.setHasFixedSize(true);
             recyclerView.setAdapter(adapter);
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
@@ -85,7 +81,7 @@ public class BarriersInternFragment extends Fragment {
                 myFilterList[counter2] = new Barrier(myBarrier.getId(),
                         myBarrier.getName(), myBarrier.getCode(),
                         myBarrier.getPatient(), myBarrier.getDescription(),
-                        myBarrier.getClasification(), myBarrier.getPriority(),
+                        myBarrier.getClassification(), myBarrier.getPriority(),
                         myBarrier.getType());
                 counter2 = counter2 + 1;
             }

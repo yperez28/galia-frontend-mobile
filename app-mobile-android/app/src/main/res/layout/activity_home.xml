@@ -47,7 +47,7 @@
 
                 <Button
                     android:id="@+id/btn_tasks"
-                    android:layout_width="185dp"
+                    android:layout_width="165dp"
                     android:layout_height="match_parent"
                     android:background="@drawable/ic_task_barrier_selected"
                     android:fontFamily="@font/inter_bold"
@@ -58,7 +58,7 @@
 
                 <Button
                     android:id="@+id/btn_barriers"
-                    android:layout_width="185dp"
+                    android:layout_width="165dp"
                     android:layout_height="match_parent"
                     android:background="@android:color/transparent"
                     android:fontFamily="@font/inter_bold"
