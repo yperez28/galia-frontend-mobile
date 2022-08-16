@@ -85,7 +85,7 @@ public class HomeActivity extends AppCompatActivity
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
-        drawerLayout.setScrimColor(Color.parseColor("#BABA2C75"));
+        drawerLayout.setScrimColor(Color.parseColor("#B5BA2C75"));
         toggle.syncState();
 
         navigationView = findViewById(R.id.navigation_view);
@@ -239,7 +239,15 @@ public class HomeActivity extends AppCompatActivity
             clicked = !clicked;
         });
 
-        homeIcon.setOnClickListener(view -> Toast.makeText(HomeActivity.this,"HOME ICON CLICKED",Toast.LENGTH_SHORT).show());
+        floating_button_patient.setOnClickListener(view -> {
+            Intent intent = new Intent(this, NewPatientActivity.class);
+            startActivity(intent);
+        });
+
+        homeIcon.setOnClickListener(view -> {
+            Intent intent = new Intent(this, HomeActivity.class);
+            startActivity(intent);
+        });
 
         notificationsIcon.setOnClickListener(view -> {
             LinearLayout notificationsContainer = findViewById(R.id.notification_layout);
@@ -315,6 +323,7 @@ public class HomeActivity extends AppCompatActivity
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 modeCardView.setElevation(0);
                 selectedCardView.setElevation(0);
+                barriersCardView.setElevation(0);
             }
             overlay.setBackgroundResource(R.color.overlayColor);
             overlay.setVisibility(View.VISIBLE);
@@ -322,6 +331,7 @@ public class HomeActivity extends AppCompatActivity
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 modeCardView.setElevation(4);
                 selectedCardView.setElevation(4);
+                barriersCardView.setElevation(4);
             }
             overlay.setBackgroundResource(R.color.transparentColor);
             overlay.setVisibility(View.INVISIBLE);
@@ -402,7 +412,6 @@ public class HomeActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()) {
             case R.id.planification_item:
-                Toast.makeText(HomeActivity.this, "Opening planification",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.patient_item:
                 Toast.makeText(HomeActivity.this, "Opening Patient",Toast.LENGTH_SHORT).show();

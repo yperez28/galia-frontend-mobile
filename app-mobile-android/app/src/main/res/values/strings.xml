@@ -20,8 +20,6 @@
     <string name="log_out">Cerrar sesión</string>
     <string name="barreras">Barreras</string>
     <string name="tareas">Tareas</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="list">Lista</string>
     <string name="calendar">Calendario</string>
     <string name="all">Todas</string>
@@ -31,13 +29,60 @@
     <string name="code">Código:</string>
     <string name="type">Tipo:</string>
     <string name="priority">Prioridad:</string>
+    <string name="basic_data">Datos básicos</string>
+    <string name="new_patient">Nueva paciente</string>
+    <string name="join_date">Fecha de ingreso</string>
+    <string name="name">Nombre</string>
+    <string name="first_lastname">Primer apellido</string>
+    <string name="second_lastname">Segundo apellido</string>
+    <string name="person_id">Cédula</string>
+    <string name="cellphone">Celular</string>
+    <string name="phone">Teléfono</string>
+    <string name="birth_date">Fecha de nacimiento</string>
+    <string name="next">Siguiente</string>
+    <string name="previous">Atrás</string>
+    <string name="female">Femenino</string>
+    <string name="male">Masculino</string>
+    <string name="other">Otro</string>
+    <string name="costa_rican">Costarricense</string>
+    <string name="nicaraguan">Nicaragüense</string>
+    <string name="sex">Sexo</string>
+    <string name="nationality">Nacionalidad</string>
+    <string name="civil_status">Estado Civil</string>
+    <string name="health_area">Área de Salud</string>
+    <string name="scholarship">Escolaridad</string>
+    <string name="ocupation">Ocupación</string>
+    <string name="insurance_type">Tipo de aseguramiento</string>
+    <string name="address">Dirección</string>
+    <string name="province">Provincia</string>
+    <string name="canton">Cantón</string>
+    <string name="first_contact">Persona de contacto 1</string>
+    <string name="relationship">Parentezco</string>
+    <string name="select_an_option">Seleccione una opción</string>
+    <string name="appointments">Citas</string>
+    <string name="province_select">Seleccione la provincia</string>
+    <string name="canton_select">Seleccione el cantón</string>
+    <string name="relationship_select">Seleccione parentezco</string>
+    <string name="insurance_type_select">Elija tipo de aseguramiento</string>
+    <string name="occupation_select">Elija ocupación</string>
+    <string name="schoolarship_select">Elija nivel de escolaridad</string>
+    <string name="health_center_select">Elija área de salud</string>
+    <string name="civil_status_select">Elija estado civil</string>
+    <string name="success_quote">Tu paciente se ha registrado con éxito</string>
+    <string name="cancel">Cancelar</string>
+    <string name="ready">Listo</string>
+    <string name="failure_quote">Lo sentimos! Ha ocurrido un error</string>
+    <string name="go_back">Regresar</string>
+    <string name="try_again">Intenta de nuevo.</string>
+    <string name="nameMandatory">Nombre*</string>
+    <string name="cellphone_mandatory">Celular*</string>
     <string name="task_to_do">Por hacer</string>
     <string name="task_complete">Completas</string>
     <string name="add_task">Agregar tarea</string>
     <string name="deadline">Deadline:</string>
     <string name="task">Tareas</string>
     <string name="barriers">Barreras</string>
-
+    
     <string-array name="custom_weekdays">
         <item>LUN</item>
         <item>MAR</item>

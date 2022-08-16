@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/basic_data"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundColor">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <View
+            android:id="@+id/top_susp_divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginEnd="11dp"
+            android:background="@color/gris_3" />
+
+        <TextView
+            android:id="@+id/susp_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/top_susp_divider"
+            android:layout_marginBottom="20dp"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/inter_bold"
+            android:text="Sospecha"
+            android:textColor="@color/gris_2"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/susp_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_below="@+id/susp_title"
+            android:background="@android:color/transparent"
+            android:text="Fecha de la sospecha"
+            android:textAppearance="@style/new_patient_form" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/susp_date_input"
+            android:layout_width="155dp"
+            android:layout_height="34.73dp"
+            android:layout_below="@+id/susp_date"
+            android:layout_marginBottom="30dp"
+            app:hintEnabled="false">
+
+            <EditText
+                android:id="@+id/susp_date_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/gris_2"
+                android:fontFamily="@font/inter_regular"
+                android:textSize="12.28sp"
+                android:background="@drawable/ic_form_edittext"
+                android:textColorHighlight="@color/iris_60"
+                android:textColorHint="@color/form_edittext_text_color"
+                android:textCursorDrawable="@drawable/ic_cursor"
+                android:drawableStart="@drawable/ic_calendar_new_patient"
+                android:drawablePadding="5dp"
+                android:inputType="date"
+                android:focusable="false"
+                android:clickable="true"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/susp_reason"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/susp_date_input"
+            android:layout_marginBottom="8dp"
+            android:background="@android:color/transparent"
+            android:text="¿Cómo se dio cuenta de la sospecha?"
+            android:textAppearance="@style/new_patient_form" />
+
+        <RelativeLayout
+            android:id="@+id/susp_reason_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/susp_reason"
+            android:layout_marginBottom="30dp" >
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/susp_reason_dropdown"
+                android:layout_width="match_parent"
+                android:layout_height="34.73dp"
+                android:layout_marginEnd="9dp"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/susp_reason_textview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textSize="12.28sp"
+                    android:textColor="@color/gris_2"
+                    android:fontFamily="@font/inter_regular"
+                    android:hint="@string/select_an_option"
+                    android:textColorHint="@color/form_edittext_text_color"
+                    android:textColorHighlight="@color/iris_60"
+                    android:textCursorDrawable="@drawable/ic_cursor"
+                    android:background="@drawable/ic_form_edittext"
+                    android:drawableEnd="@drawable/ic_dropdown_icon"
+                    android:drawableTint="@color/form_edittext_text_color"
+                    android:focusable="false"
+                    android:clickable="true"
+                    android:inputType="none" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/susp_reason_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="9dp"
+                android:layout_below="@+id/susp_reason_dropdown"
+                android:background="@drawable/ic_form_edittext"
+                android:visibility="gone">
+            </androidx.recyclerview.widget.RecyclerView>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/contact_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/susp_reason_input"
+            android:layout_marginBottom="8dp"
+            android:background="@android:color/transparent"
+            android:text="Lugar de abordaje"
+            android:textAppearance="@style/new_patient_form" />
+
+        <RelativeLayout
+            android:id="@+id/susp_relative_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/contact_name"
+            android:layout_marginBottom="30dp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/contact_name_input"
+                android:layout_width="match_parent"
+                android:layout_height="34.73dp"
+                android:layout_marginEnd="9dp"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/susp_place_textview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/ic_form_edittext"
+                    android:clickable="true"
+                    android:drawableEnd="@drawable/ic_dropdown_icon"
+                    android:drawableTint="@color/form_edittext_text_color"
+                    android:focusable="false"
+                    android:fontFamily="@font/inter_regular"
+                    android:hint="@string/select_an_option"
+                    android:inputType="none"
+                    android:textColor="@color/gris_2"
+                    android:textColorHighlight="@color/iris_60"
+                    android:textColorHint="@color/form_edittext_text_color"
+                    android:textCursorDrawable="@drawable/ic_cursor"
+                    android:textSize="12.28sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/susp_place_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="208.38dp"
+                android:layout_below="@+id/contact_name_input"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="9dp"
+                android:scrollbars="vertical"
+                android:background="@drawable/ic_form_edittext"
+                android:visibility="gone">
+            </androidx.recyclerview.widget.RecyclerView>
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/bottom_contact_divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/susp_relative_input"
+            android:layout_marginEnd="11dp"
+            android:background="@color/gris_3" />
+
+        <TextView
+            android:id="@+id/appointment_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bottom_contact_divider"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="15dp"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/inter_bold"
+            android:text="@string/appointments"
+            android:textColor="@color/gris_2"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/suspicion_previous"
+            android:layout_width="95dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/appointment_text"
+            android:layout_toStartOf="@+id/save"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/ic_form_buttons"
+            android:fontFamily="@font/inter_regular"
+            android:text="@string/previous"
+            android:textAllCaps="false"
+            android:textColor="@color/gris_6"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/save"
+            android:layout_width="95dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/appointment_text"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/ic_form_buttons"
+            android:fontFamily="@font/inter_regular"
+            android:text="Guardar"
+            android:textAllCaps="false"
+            android:textColor="@color/gris_6"
+            android:textSize="16sp" />
+    </RelativeLayout>
+</ScrollView>

@@ -1,6 +1,6 @@
 package com.pnp.galia_app_mobile;
 
-import java.util.Date;
+import androidx.annotation.NonNull;
 
 public class Barrier {
     private String id;
@@ -8,7 +8,7 @@ public class Barrier {
     private String code;
     private String patient;
     private String description;
-    private String clasification;
+    private String classification;
     private String priority;
     private String type;
 
@@ -18,7 +18,7 @@ public class Barrier {
         this.code = code;
         this.patient = patient;
         this.description = description;
-        this.clasification = clasification;
+        this.classification = clasification;
         this.priority = priority;
         this.type = type;
     }
@@ -63,12 +63,12 @@ public class Barrier {
         this.description = description;
     }
 
-    public String getClasification() {
-        return clasification;
+    public String getClassification() {
+        return classification;
     }
 
-    public void setClasification(String clasification) {
-        this.clasification = clasification;
+    public void setClassification(String classification) {
+        this.classification = classification;
     }
 
     public String getPriority() {
@@ -87,6 +87,7 @@ public class Barrier {
         this.type = type;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return "Barrier{" +
@@ -95,7 +96,7 @@ public class Barrier {
                 ", code='" + code + '\'' +
                 ", patient='" + patient + '\'' +
                 ", description='" + description + '\'' +
-                ", clasification=" + clasification +
+                ", clasification=" + classification +
                 ", priority='" + priority + '\'' +
                 ", mode='" + type + '\'' +
                 '}';

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/ic_stepbar_complete_step" android:state_selected="true" />
+    <item android:drawable="@drawable/ic_stepbar_incomplete_step" android:state_activated="true"/>
+    <item android:drawable="@drawable/ic_stepbar_inactive_step"/>
+</selector>
