@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/notification_container"
+    android:layout_width="match_parent"
+    android:layout_height="89dp"
+    android:layout_marginBottom="9dp"
+    android:elevation="1dp"
+    android:background="@drawable/ic_notification_background">
+
+    <ImageView
+        android:id="@+id/notification_circle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="8dp"
+        android:paddingTop="4dp"
+        android:src="@drawable/ic_small_circle"/>
+    <TextView
+        android:id="@+id/notification_description"
+        android:layout_width="270dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="5dp"
+        android:layout_toEndOf="@+id/notification_circle"
+        android:fontFamily="@font/inter_regular"
+        android:text="Texto de la notificación"
+        android:textColor="@color/notification_description"
+        android:textSize="14sp" />
+    <ImageView
+        android:id="@+id/notification_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/notification_description"
+        android:layout_marginStart="8dp"
+        android:src="@drawable/ic_task_check_pink"/>
+    <TextView
+        android:id="@+id/notification_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_alignLeft="@id/notification_description"
+        android:layout_below="@id/notification_description"
+        android:fontFamily="@font/inter_regular"
+        android:text="Hace 2 min"
+        android:textColor="@color/notification_time"
+        android:textSize="11sp" />
+</RelativeLayout>
