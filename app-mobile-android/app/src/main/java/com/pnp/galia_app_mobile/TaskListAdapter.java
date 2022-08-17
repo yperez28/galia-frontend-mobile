@@ -23,9 +23,8 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.ViewHo
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View listItem= layoutInflater.inflate(R.layout.tasklist_content, parent, false);
-        ViewHolder viewHolder = new ViewHolder(listItem);
 
-        return viewHolder;
+        return new ViewHolder(listItem);
     }
 
     @Override
@@ -37,19 +36,21 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.ViewHo
         holder.modeDescription.setText(taskList[position].getMode());
 
         String priority = taskList[position].getPriority();
-
         switch (priority) {
             case "Baja":
-                holder.divider.setBackgroundColor(Color.parseColor("#808E3B"));
+                holder.priorityDescription.setTextColor(Color.parseColor("#808E3B"));
+                holder.priorityDescription.setActivated(true);
                 break;
             case "Media":
-                holder.divider.setBackgroundColor(Color.parseColor("#F5CB5E"));
+                holder.priorityDescription.setTextColor(Color.parseColor("#F5CB5E"));
+                holder.priorityDescription.setSelected(true);
                 break;
             case "Alta":
-                holder.divider.setBackgroundColor(Color.parseColor("#9D2234"));
+                holder.priorityDescription.setTextColor(Color.parseColor("#9D2234"));
+                holder.priorityDescription.setPressed(true);
                 break;
             default:
-                holder.divider.setBackgroundColor(Color.parseColor("#828282"));
+                holder.priorityDescription.setTextColor(Color.parseColor("#828282"));
         }
 
     }
@@ -57,7 +58,7 @@ public class TaskListAdapter extends RecyclerView.Adapter<TaskListAdapter.ViewHo
     @Override
     public int getItemCount() { return taskList.length; }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         public CheckBox taskDescription;
         public TextView patientName;
         public TextView priorityDescription;

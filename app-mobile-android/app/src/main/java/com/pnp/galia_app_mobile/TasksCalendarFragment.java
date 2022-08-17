@@ -25,8 +25,6 @@ import java.util.Locale;
 
 public class TasksCalendarFragment extends Fragment {
 
-    private String mParam1;
-    private String mParam2;
     private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("EEEE d", new Locale("es", "ES"));
     private RecyclerView recyclerView;
     private RelativeLayout eventText;

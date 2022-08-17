@@ -3,18 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragment_barriers_all"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".BarriersAllFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/backgroundColorTwo">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/barrier_all_recycler"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:background="@drawable/ic_barrier_container"
             android:elevation="2dp"
             android:scrollbars="vertical">

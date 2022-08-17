@@ -29,24 +29,26 @@ public class BarrierAdapter extends RecyclerView.Adapter<BarrierAdapter.ViewHold
         holder.barrierName.setText(barrierList[position].getName());
         holder.patientName.setText(barrierList[position].getPatient());
         holder.priorityDescription.setText(barrierList[position].getPriority());
-        holder.clasificationName.setText(barrierList[position].getClassification());
+        holder.classificationName.setText(barrierList[position].getClassification());
         holder.typeDescription.setText(barrierList[position].getType());
         holder.codeDescription.setText(barrierList[position].getCode());
 
         String priority = barrierList[position].getPriority();
-
         switch (priority) {
             case "Baja":
-                holder.divider.setBackgroundColor(Color.parseColor("#808E3B"));
+                holder.priorityDescription.setTextColor(Color.parseColor("#808E3B"));
+                holder.priorityDescription.setActivated(true);
                 break;
             case "Media":
-                holder.divider.setBackgroundColor(Color.parseColor("#F5CB5E"));
+                holder.priorityDescription.setTextColor(Color.parseColor("#F5CB5E"));
+                holder.priorityDescription.setSelected(true);
                 break;
             case "Alta":
-                holder.divider.setBackgroundColor(Color.parseColor("#9D2234"));
+                holder.priorityDescription.setTextColor(Color.parseColor("#9D2234"));
+                holder.priorityDescription.setPressed(true);
                 break;
             default:
-                holder.divider.setBackgroundColor(Color.parseColor("#828282"));
+                holder.priorityDescription.setTextColor(Color.parseColor("#828282"));
         }
     }
 
@@ -57,7 +59,7 @@ public class BarrierAdapter extends RecyclerView.Adapter<BarrierAdapter.ViewHold
         public TextView barrierName;
         public TextView patientName;
         public TextView priorityDescription;
-        public TextView clasificationName;
+        public TextView classificationName;
         public TextView typeDescription;
         public TextView codeDescription;
         public View divider;
@@ -68,7 +70,7 @@ public class BarrierAdapter extends RecyclerView.Adapter<BarrierAdapter.ViewHold
             this.barrierName = itemView.findViewById(R.id.barrier_name);
             this.patientName = itemView.findViewById(R.id.patient_name);
             this.priorityDescription = itemView.findViewById(R.id.priority_description);
-            this.clasificationName = itemView.findViewById(R.id.clasification_description);
+            this.classificationName = itemView.findViewById(R.id.clasification_description);
             this.typeDescription = itemView.findViewById(R.id.type_description);
             this.codeDescription = itemView.findViewById(R.id.code_description);
             this.divider = itemView.findViewById(R.id.divider);

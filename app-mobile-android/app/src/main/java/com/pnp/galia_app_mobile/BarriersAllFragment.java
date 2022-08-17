@@ -43,15 +43,6 @@ public class BarriersAllFragment extends Fragment {
 
     private void getVisibleView(Barrier[] listBarriers) {
         if (listBarriers.length > 0) {
-            /*final float scale = getContext().getResources().getDisplayMetrics().density;
-            int multiTask = (int) (75 * scale + 0.5f);
-            int oneTask = (int) (156 * scale + 0.5f);
-            if (listBarriers.length == 1) {
-                recyclerView.getLayoutParams().height = multiTask;
-            }
-            else {
-                recyclerView.getLayoutParams().height = oneTask;
-            }*/
             BarrierAdapter adapter = new BarrierAdapter(listBarriers);
             recyclerView.setHasFixedSize(true);
             recyclerView.setAdapter(adapter);
