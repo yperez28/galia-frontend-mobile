@@ -148,16 +148,18 @@
                 android:elevation="2dp">
 
                 <Button
-                    android:id="@+id/add_task_button"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/add_task_list_button"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="8dp"
                     android:background="@android:color/transparent"
                     android:drawableStart="@drawable/ic_plus_symbol"
+                    android:drawablePadding="5dp"
                     android:fontFamily="@font/inter_semibold"
                     android:paddingStart="5dp"
-                    android:text="  Agregar tarea"
+                    android:text="@string/add_task"
                     android:textAllCaps="false"
+                    android:textAlignment="viewStart"
                     android:textColor="@color/gris_5"
                     android:textSize="12sp" />
             </RelativeLayout>

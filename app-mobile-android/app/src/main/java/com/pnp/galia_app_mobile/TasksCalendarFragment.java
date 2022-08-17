@@ -1,5 +1,6 @@
 package com.pnp.galia_app_mobile;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,7 +9,6 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -83,8 +83,8 @@ public class TasksCalendarFragment extends Fragment {
         });
 
         addTaskButton.setOnClickListener(view -> {
-            String message = "Adding new task...";
-            Toast.makeText(getContext(), message, Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(getContext(), NewTaskActivity.class);
+            startActivity(intent);
         });
 
         return myView;

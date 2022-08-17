@@ -17,7 +17,25 @@
             android:name=".HomeActivity"
             android:exported="false" />
         <activity
+            android:name=".NewTaskActivity"
+            android:exported="false" />
+        <activity
             android:name=".NewPatientActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NewTracingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NewBarrierActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NewAppointmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PatientsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SettingsActivity"
             android:exported="false" />
         <activity
             android:name=".LoginActivity"

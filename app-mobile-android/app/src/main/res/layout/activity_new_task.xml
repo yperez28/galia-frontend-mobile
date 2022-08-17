@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
+    tools:context=".NewTaskActivity">
+
+    <RelativeLayout
+        android:id="@+id/new_task_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@color/backgroundColor">
+
+        <TextView
+            android:id="@+id/new_task_fragment_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/inter_bold"
+            android:text="Nueva tarea"
+            android:textColor="@color/gris_2"
+            android:textSize="17.5sp" />
+
+        <ImageButton
+            android:id="@+id/close_task_view"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_close_icon" />
+    </RelativeLayout>
+</RelativeLayout>
