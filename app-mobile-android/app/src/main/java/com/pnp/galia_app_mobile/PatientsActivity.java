@@ -2,13 +2,11 @@ package com.pnp.galia_app_mobile;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -18,17 +16,15 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
-public class HomeActivity extends AppCompatActivity
+public class PatientsActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         DrawerLayout.DrawerListener {
 
@@ -48,17 +44,12 @@ public class HomeActivity extends AppCompatActivity
     private ImageView homeIcon;
     private ImageView notificationsIcon;
 
-    private Button btnTasks;
-    private Button btnBarriers;
     private boolean clicked = false;
     private boolean notificationOpen = false;
 
     private DrawerLayout drawerLayout;
     private RelativeLayout toolBarIcons;
     private NavigationView navigationView;
-    private CardView modeCardView;
-    private CardView barriersCardView;
-    private CardView selectedCardView;
     private TextView notificationCounter;
     private int notificationNumberCounter = 0;
     private RecyclerView notificationRecycler;
@@ -71,7 +62,7 @@ public class HomeActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_patients);
 
         notificationList = new Notification[] {new Notification("Tienes una tarea pendiente para hoy! Recuerda completarla", NotificationType.REMINDER, false, "Hace 2min"), new Notification("La Dra. Mariela Boñaños te ha asignado una nueva paciente.", NotificationType.NEW_PATIENT, false, "Hace 5min"), new Notification("La Dra. Mariela Boñaños te ha asignado una nueva tarea.", NotificationType.NEW_TASK, false, "Hace 14min"), new Notification("Tienes una tarea pendiente para hoy! Recuerda completarla", NotificationType.NEW_TASK, true, "Hace 2min"), new Notification("Tienes una tarea pendiente para hoy! Recuerda completarla", NotificationType.REMINDER, true, "Hace 2min"), new Notification("Tienes una tarea pendiente para hoy! Recuerda completarla", NotificationType.REMINDER, true, "Hace 2min"), new Notification("Tienes una tarea pendiente para hoy! Recuerda completarla", NotificationType.NEW_PATIENT, true, "Hace 2min")};
 
@@ -90,22 +81,9 @@ public class HomeActivity extends AppCompatActivity
         navigationView = findViewById(R.id.navigation_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        MenuItem menuItem = navigationView.getMenu().getItem(0);
+        MenuItem menuItem = navigationView.getMenu().getItem(1);
         onNavigationItemSelected(menuItem);
         menuItem.setChecked(true);
-
-        Button listViewButton = findViewById(R.id.list_view);
-        Button calendarViewButton = findViewById(R.id.calendar_view);
-        listViewButton.setSelected(true);
-        listViewButton.setBackgroundResource(R.drawable.ic_button_background);
-        Button allViewButton = findViewById(R.id.barriers_all_view);
-        Button internViewButton = findViewById(R.id.barriers_interns_view);
-        Button externViewButton = findViewById(R.id.barriers_externs_view);
-        allViewButton.setSelected(true);
-        allViewButton.setBackgroundResource(R.drawable.ic_button_background);
-        modeCardView = findViewById(R.id.mode_cardview);
-        barriersCardView = findViewById(R.id.cardview_barriers);
-        selectedCardView = findViewById(R.id.cardview_tasks);
 
         drawerLayout.addDrawerListener(this);
 
@@ -125,111 +103,11 @@ public class HomeActivity extends AppCompatActivity
         homeIcon = findViewById(R.id.home_icon);
         notificationsIcon = findViewById(R.id.notification_icon);
 
-        btnTasks = findViewById(R.id.btn_tasks);
-        btnBarriers = findViewById(R.id.btn_barriers);
-
         getNotificationsCounter();
         notificationCounter = findViewById(R.id.notification_counter);
         notificationCounter.setText(setNotificationIcons());
         notificationRecycler = findViewById(R.id.notifications_recycler);
         readNotifications = findViewById(R.id.read_notifications);
-
-        FragmentManager fragmentManager = getSupportFragmentManager();
-
-        listViewButton.setOnClickListener(view -> {
-            fragmentManager.beginTransaction()
-                    .replace(R.id.fragment_home_page, TasksListFragment.class, null)
-                    .setReorderingAllowed(true)
-                    .addToBackStack("name")
-                    .commit();
-            calendarViewButton.setSelected(false);
-            calendarViewButton.setBackgroundResource(R.color.transparentColor);
-            listViewButton.setSelected(true);
-            listViewButton.setBackgroundResource(R.drawable.ic_button_background);
-        });
-
-        calendarViewButton.setOnClickListener(view -> {
-            fragmentManager.beginTransaction()
-                    .replace(R.id.fragment_home_page, TasksCalendarFragment.class, null)
-                    .setReorderingAllowed(true)
-                    .addToBackStack("name")
-                    .commit();
-
-            calendarViewButton.setSelected(true);
-            calendarViewButton.setBackgroundResource(R.drawable.ic_button_background);
-            listViewButton.setSelected(false);
-            listViewButton.setBackgroundResource(R.color.transparentColor);
-        });
-
-        allViewButton.setOnClickListener(view -> {
-            fragmentManager.beginTransaction()
-                    .replace(R.id.fragment_home_page, BarriersAllFragment.class, null)
-                    .setReorderingAllowed(true)
-                    .addToBackStack("name")
-                    .commit();
-            internViewButton.setSelected(false);
-            internViewButton.setBackgroundResource(R.color.transparentColor);
-            externViewButton.setSelected(false);
-            externViewButton.setBackgroundResource(R.color.transparentColor);
-            allViewButton.setSelected(true);
-            allViewButton.setBackgroundResource(R.drawable.ic_button_background);
-        });
-
-        internViewButton.setOnClickListener(view -> {
-            fragmentManager.beginTransaction()
-                    .replace(R.id.fragment_home_page, BarriersInternFragment.class, null)
-                    .setReorderingAllowed(true)
-                    .addToBackStack("name")
-                    .commit();
-            internViewButton.setSelected(true);
-            internViewButton.setBackgroundResource(R.drawable.ic_button_background);
-            externViewButton.setSelected(false);
-            externViewButton.setBackgroundResource(R.color.transparentColor);
-            allViewButton.setSelected(false);
-            allViewButton.setBackgroundResource(R.color.transparentColor);
-        });
-
-        externViewButton.setOnClickListener(view -> {
-            fragmentManager.beginTransaction()
-                    .replace(R.id.fragment_home_page, BarriersExternFragment.class, null)
-                    .setReorderingAllowed(true)
-                    .addToBackStack("name")
-                    .commit();
-            internViewButton.setSelected(false);
-            internViewButton.setBackgroundResource(R.color.transparentColor);
-            externViewButton.setSelected(true);
-            externViewButton.setBackgroundResource(R.drawable.ic_button_background);
-            allViewButton.setSelected(false);
-            allViewButton.setBackgroundResource(R.color.transparentColor);
-        });
-
-        btnTasks.setOnClickListener(view -> {
-            fragmentManager.beginTransaction()
-                    .replace(R.id.fragment_home_page, TasksListFragment.class, null)
-                    .setReorderingAllowed(true)
-                    .addToBackStack("name")
-                    .commit();
-            btnBarriers.setBackgroundResource(R.color.transparentColor);
-            btnBarriers.setTextColor(getResources().getColor(R.color.gris_5));
-            btnTasks.setBackgroundResource(R.drawable.ic_task_barrier_selected);
-            btnTasks.setTextColor(getResources().getColor(R.color.backgroundColor));
-            modeCardView.setVisibility(View.VISIBLE);
-            barriersCardView.setVisibility(View.INVISIBLE);
-        });
-
-        btnBarriers.setOnClickListener(view -> {
-            fragmentManager.beginTransaction()
-                    .replace(R.id.fragment_home_page, BarriersAllFragment.class, null)
-                    .setReorderingAllowed(true)
-                    .addToBackStack("name")
-                    .commit();
-            btnBarriers.setBackgroundResource(R.drawable.ic_task_barrier_selected);
-            btnBarriers.setTextColor(getResources().getColor(R.color.backgroundColor));
-            btnTasks.setBackgroundResource(R.color.transparentColor);
-            btnTasks.setTextColor(getResources().getColor(R.color.gris_5));
-            modeCardView.setVisibility(View.INVISIBLE);
-            barriersCardView.setVisibility(View.VISIBLE);
-        });
 
         floating_button_main.setOnClickListener(view -> {
             setVisibility(clicked);
@@ -337,19 +215,9 @@ public class HomeActivity extends AppCompatActivity
             text_view_tracing.setVisibility(View.VISIBLE);
             text_view_patient.setVisibility(View.VISIBLE);
             text_view_task.setVisibility(View.VISIBLE);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                modeCardView.setElevation(0);
-                selectedCardView.setElevation(0);
-                barriersCardView.setElevation(0);
-            }
             overlay.setBackgroundResource(R.color.overlayColor);
             overlay.setVisibility(View.VISIBLE);
         } else {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                modeCardView.setElevation(4);
-                selectedCardView.setElevation(4);
-                barriersCardView.setElevation(4);
-            }
             overlay.setBackgroundResource(R.color.transparentColor);
             overlay.setVisibility(View.INVISIBLE);
             floating_button_appointment.setVisibility(View.INVISIBLE);
@@ -429,9 +297,9 @@ public class HomeActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()) {
             case R.id.planification_item:
+                startActivity(new Intent(this, HomeActivity.class));
                 break;
             case R.id.patient_item:
-                startActivity(new Intent(this, PatientsActivity.class));
                 break;
             case R.id.settings_item:
                 startActivity(new Intent(this, SettingsActivity.class));

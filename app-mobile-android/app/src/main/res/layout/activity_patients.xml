@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="left"
+    android:fitsSystemWindows="true"
+    android:background="@color/backgroundColorTwo"
+    tools:openDrawer="start">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/lbl_settings"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_alignParentTop="true"
+            android:fontFamily="@font/inter_bold"
+            android:text="Pacientes"
+            android:textColor="@color/gris_2"
+            android:textSize="19sp"
+            app:layout_constraintBottom_toBottomOf="@id/bottom_planification"
+            app:layout_constraintLeft_toRightOf="@id/left_toolbar"
+            app:layout_constraintRight_toLeftOf="@id/middle_screenview"
+            app:layout_constraintTop_toTopOf="@id/top_planification" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floating_button_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/og_fuchsia"
+            android:clickable="true"
+            android:elevation="0dp"
+            app:borderWidth="0dp"
+            app:layout_constraintBottom_toTopOf="@id/floating_button_bottom"
+            app:layout_constraintRight_toLeftOf="@id/floating_button_right"
+            app:srcCompat="@drawable/ic_open_floating_button"
+            android:contentDescription="Floating button" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floating_button_appointment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
+            android:backgroundTint="@color/iris_100"
+            android:clickable="true"
+            android:elevation="4dp"
+            android:visibility="invisible"
+            app:borderWidth="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/floating_button_main"
+            app:layout_constraintEnd_toEndOf="@+id/floating_button_main"
+            app:srcCompat="@drawable/ic_calendar" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floating_button_barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/iris_100"
+            android:clickable="true"
+            android:elevation="4dp"
+            android:visibility="invisible"
+            app:borderWidth="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/floating_button_appointment"
+            app:layout_constraintEnd_toEndOf="@+id/floating_button_appointment"
+            app:srcCompat="@drawable/ic_barrier" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floating_button_tracing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/iris_100"
+            android:clickable="true"
+            android:elevation="4dp"
+            android:visibility="invisible"
+            app:borderWidth="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/floating_button_barrier"
+            app:layout_constraintEnd_toEndOf="@+id/floating_button_barrier"
+            app:srcCompat="@drawable/ic_tracing" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floating_button_patient"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/iris_100"
+            android:clickable="true"
+            android:elevation="4dp"
+            android:visibility="invisible"
+            app:borderWidth="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/floating_button_tracing"
+            app:layout_constraintEnd_toEndOf="@+id/floating_button_tracing"
+            app:srcCompat="@drawable/ic_patient" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floating_button_task"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/iris_100"
+            android:clickable="true"
+            android:elevation="4dp"
+            android:visibility="invisible"
+            app:borderWidth="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/floating_button_patient"
+            app:layout_constraintEnd_toEndOf="@+id/floating_button_patient"
+            app:srcCompat="@drawable/ic_task" />
+
+        <TextView
+            android:id="@+id/text_view_appointment"
+            style="@style/floating_button_label_style"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:elevation="4dp"
+            android:text="Citas"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/floating_button_appointment"
+            app:layout_constraintEnd_toStartOf="@+id/titles_floating_button_right"
+            app:layout_constraintStart_toStartOf="@+id/titles_floating_buttons_left"
+            app:layout_constraintTop_toTopOf="@+id/floating_button_appointment" />
+
+        <TextView
+            android:id="@+id/text_view_barrier"
+            style="@style/floating_button_label_style"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:elevation="4dp"
+            android:text="Barrera"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/floating_button_barrier"
+            app:layout_constraintEnd_toStartOf="@+id/titles_floating_button_right"
+            app:layout_constraintStart_toStartOf="@+id/titles_floating_buttons_left"
+            app:layout_constraintTop_toTopOf="@+id/floating_button_barrier" />
+
+        <TextView
+            android:id="@+id/text_view_tracing"
+            style="@style/floating_button_label_style"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:elevation="4dp"
+            android:text="Seguimiento"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/floating_button_tracing"
+            app:layout_constraintEnd_toStartOf="@+id/titles_floating_button_right"
+            app:layout_constraintStart_toStartOf="@+id/titles_floating_buttons_left"
+            app:layout_constraintTop_toTopOf="@+id/floating_button_tracing" />
+
+        <TextView
+            android:id="@+id/text_view_patient"
+            style="@style/floating_button_label_style"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:elevation="4dp"
+            android:text="Paciente"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/floating_button_patient"
+            app:layout_constraintEnd_toStartOf="@+id/titles_floating_button_right"
+            app:layout_constraintStart_toStartOf="@+id/titles_floating_buttons_left"
+            app:layout_constraintTop_toTopOf="@+id/floating_button_patient" />
+
+        <TextView
+            android:id="@+id/text_view_task"
+            style="@style/floating_button_label_style"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:elevation="4dp"
+            android:text="Tarea"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/floating_button_task"
+            app:layout_constraintEnd_toStartOf="@+id/titles_floating_button_right"
+            app:layout_constraintStart_toStartOf="@+id/titles_floating_buttons_left"
+            app:layout_constraintTop_toTopOf="@+id/floating_button_task" />
+
+        <LinearLayout
+            android:id="@+id/notification_layout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:elevation="10dp"
+            android:visibility="invisible"
+            android:background="@color/backgroundColor"
+            app:layout_constraintTop_toBottomOf="@id/toolbar_bottom"
+            app:layout_constraintBottom_toBottomOf="parent">
+            <RelativeLayout
+                android:id="@+id/notifications_title_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp">
+                <TextView
+                    android:id="@+id/notifications_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Notificaciones"
+                    android:textColor="@color/gris_2"
+                    android:textSize="17.5sp"
+                    android:fontFamily="@font/inter_bold" />
+                <TextView
+                    android:id="@+id/read_notifications"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:drawableLeft="@drawable/ic_double_check"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/read_notifications"
+                    android:fontFamily="@font/inter_bold"
+                    android:text="Marcar como leído"
+                    android:textColor="@color/read_notifications"
+                    android:textSize="14sp" />
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/notifications_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:background="@android:color/transparent"
+                android:scrollbars="none" >
+            </androidx.recyclerview.widget.RecyclerView>
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/left_screen_margin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/right_screen_margin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/top_cardview_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.24" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/bottom_cardview_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.28" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/top_fragment_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.31" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/bottom_fragment_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.99" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/toolbar_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.06" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/top_toolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.0" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/right_toolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/left_toolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/top_planification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.09" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/bottom_planification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.15" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/middle_screenview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/floating_button_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.96" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/floating_button_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.9" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/titles_floating_buttons_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.50" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/titles_floating_button_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.88" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/appointment_title_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.709" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/appointment_title_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.758" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/barrier_title_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.609" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/barrier_title_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.658" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/tracing_title_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.51" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/tracing_title_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.559" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/patient_title_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.405" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/patient_title_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.454" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/task_title_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.305" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/task_title_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.354" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/top_cardview_tasks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.16" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/bottom_cardview_tasks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.21" />
+
+        <LinearLayout
+            android:id="@+id/floating_button_overlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#BAF2F2F2"
+            android:visibility="invisible"
+            android:orientation="horizontal">
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/home_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@color/backgroundColor"
+            android:elevation="6dp">
+
+            <RelativeLayout
+                android:id="@+id/option_icons_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/home_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_home_vector" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:gravity="center">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:id="@+id/notification_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:textAlignment="center"
+                            android:tint="@color/mode_icon_color"
+                            android:src="@drawable/ic_notifications_icon" />
+
+                        <TextView
+                            android:id="@+id/notification_counter"
+                            android:layout_width="12dp"
+                            android:layout_height="12dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginStart="12dp"
+                            android:background="@drawable/ic_notification_icon"
+                            android:text="0"
+                            android:textAlignment="center"
+                            android:textColor="@color/backgroundColor"
+                            android:textSize="8sp"
+                            android:fontFamily="@font/inter_semibold"
+                            android:visibility="invisible"
+                            app:layout_constraintTop_toTopOf="@+id/notification_icon"
+                            app:layout_constraintEnd_toEndOf="@+id/notification_icon"
+                            app:layout_constraintStart_toStartOf="@+id/notification_icon" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+
+            </RelativeLayout>
+        </com.google.android.material.appbar.MaterialToolbar>
+    </LinearLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigation_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="left"
+        android:background="@color/backgroundColor"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header"
+        app:itemBackground="@drawable/ic_menu_item_background"
+        app:itemIconTint="@color/menu_colors"
+        app:itemTextColor="@color/menu_colors"
+        app:itemHorizontalPadding="20dp"
+        app:itemTextAppearance="@style/menu_item_appearence"
+        app:menu="@menu/activity_home_navigation_drawer" />
+
+</androidx.drawerlayout.widget.DrawerLayout>

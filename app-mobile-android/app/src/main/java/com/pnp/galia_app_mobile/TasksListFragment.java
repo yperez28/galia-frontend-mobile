@@ -1,5 +1,6 @@
 package com.pnp.galia_app_mobile;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.transition.AutoTransition;
 import android.transition.TransitionManager;
@@ -43,7 +44,7 @@ public class TasksListFragment extends Fragment {
                              Bundle savedInstanceState) {
         View myView = inflater.inflate(R.layout.fragment_tasks_list, container, false);
 
-        Button btnAddTask = myView.findViewById(R.id.add_task_button);
+        Button btnAddTask = myView.findViewById(R.id.add_task_list_button);
 
         recyclerViewTaskToDo = myView.findViewById(R.id.task_todo_recycler);
         ImageView arrowTaskToDo = myView.findViewById(R.id.arrow_task_to_do);
@@ -94,7 +95,8 @@ public class TasksListFragment extends Fragment {
         btnAddTask.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(getContext(), NewTaskActivity.class);
+                startActivity(intent);
             }
         });
 
