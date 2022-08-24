@@ -9,6 +9,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:scrollbars="vertical"
         android:background="@color/backgroundColorTwo">
 
         <androidx.recyclerview.widget.RecyclerView
@@ -20,5 +21,30 @@
             android:scrollbars="vertical">
         </androidx.recyclerview.widget.RecyclerView>
 
+        <RelativeLayout
+            android:id="@+id/add_barrier_all"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:layout_below="@+id/barrier_all_recycler"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/ic_add_task_container">
+
+            <Button
+                android:id="@+id/add_barrier_all_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:background="@android:color/transparent"
+                android:drawableStart="@drawable/ic_plus_symbol"
+                android:drawablePadding="5dp"
+                android:fontFamily="@font/inter_semibold"
+                android:paddingStart="5dp"
+                android:text="@string/add_barrier"
+                android:textAlignment="viewStart"
+                android:textAllCaps="false"
+                android:textColor="@color/gris_5"
+                android:textSize="12sp" />
+        </RelativeLayout>
     </RelativeLayout>
 </FrameLayout>

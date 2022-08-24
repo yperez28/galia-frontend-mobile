@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">galia-app-mobile</string>
+    <string name="app_name">Navegación de Pacientes</string>
     <string name="show_password">show password</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -79,6 +79,7 @@
     <string name="task_to_do">Por hacer</string>
     <string name="task_complete">Completas</string>
     <string name="add_task">Agregar tarea</string>
+    <string name="add_barrier">Agregar barrera</string>
     <string name="deadline">Deadline:</string>
     <string name="task">Tareas</string>
     <string name="barriers">Barreras</string>

@@ -21,7 +21,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/join_date"
-            android:layout_width="155dp"
+            android:layout_width="189dp"
             android:layout_height="34.73dp"
             android:layout_below="@+id/gender"
             android:layout_marginBottom="15dp"
@@ -175,7 +175,7 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/patient_id_input"
-                    android:layout_width="155dp"
+                    android:layout_width="171dp"
                     android:layout_height="34.73dp"
                     android:layout_below="@+id/patient_id"
                     android:layout_marginBottom="15dp"
@@ -215,7 +215,7 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/patient_cellphone_input"
-                    android:layout_width="155dp"
+                    android:layout_width="171dp"
                     android:layout_height="34.73dp"
                     android:layout_below="@+id/patient_cellphone"
                     android:layout_marginBottom="15dp"
@@ -260,7 +260,7 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/phone_number_input"
-                    android:layout_width="155dp"
+                    android:layout_width="171dp"
                     android:layout_height="34.73dp"
                     android:layout_below="@+id/patient_phone"
                     android:layout_marginBottom="15dp"
@@ -299,7 +299,7 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/birth_date_input"
-                    android:layout_width="155dp"
+                    android:layout_width="171dp"
                     android:layout_height="34.73dp"
                     android:layout_below="@+id/birth_date"
                     android:layout_marginBottom="15dp"
