@@ -41,6 +41,7 @@
             app:layout_constraintTop_toBottomOf="@id/top_cardview_tasks">
 
             <RelativeLayout
+                android:id="@+id/r"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
@@ -307,66 +308,67 @@
             android:id="@+id/text_view_appointment"
             style="@style/floating_button_label_style"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="30dp"
             android:elevation="4dp"
             android:text="Citas"
             android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="@+id/appointment_title_bottom"
+            app:layout_constraintBottom_toBottomOf="@+id/floating_button_appointment"
             app:layout_constraintEnd_toStartOf="@+id/titles_floating_button_right"
             app:layout_constraintStart_toStartOf="@+id/titles_floating_buttons_left"
-            app:layout_constraintTop_toTopOf="@+id/appointment_title_top" />
+            app:layout_constraintTop_toTopOf="@+id/floating_button_appointment" />
 
         <TextView
             android:id="@+id/text_view_barrier"
             style="@style/floating_button_label_style"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="30dp"
             android:elevation="4dp"
             android:text="Barrera"
             android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="@+id/barrier_title_bottom"
+            app:layout_constraintBottom_toBottomOf="@+id/floating_button_barrier"
             app:layout_constraintEnd_toStartOf="@+id/titles_floating_button_right"
             app:layout_constraintStart_toStartOf="@+id/titles_floating_buttons_left"
-            app:layout_constraintTop_toTopOf="@+id/barrier_title_top" />
+            app:layout_constraintTop_toTopOf="@+id/floating_button_barrier" />
 
         <TextView
             android:id="@+id/text_view_tracing"
             style="@style/floating_button_label_style"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="30dp"
             android:elevation="4dp"
             android:text="Seguimiento"
             android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="@+id/tracing_title_bottom"
+            app:layout_constraintBottom_toBottomOf="@+id/floating_button_tracing"
             app:layout_constraintEnd_toStartOf="@+id/titles_floating_button_right"
             app:layout_constraintStart_toStartOf="@+id/titles_floating_buttons_left"
-            app:layout_constraintTop_toTopOf="@+id/tracing_title_top" />
+            app:layout_constraintTop_toTopOf="@+id/floating_button_tracing" />
 
         <TextView
             android:id="@+id/text_view_patient"
             style="@style/floating_button_label_style"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="30dp"
             android:elevation="4dp"
             android:text="Paciente"
             android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="@+id/patient_title_bottom"
+            app:layout_constraintBottom_toBottomOf="@+id/floating_button_patient"
             app:layout_constraintEnd_toStartOf="@+id/titles_floating_button_right"
             app:layout_constraintStart_toStartOf="@+id/titles_floating_buttons_left"
-            app:layout_constraintTop_toTopOf="@+id/patient_title_top" />
+            app:layout_constraintTop_toTopOf="@+id/floating_button_patient" />
 
         <TextView
             android:id="@+id/text_view_task"
             style="@style/floating_button_label_style"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="30dp"
             android:elevation="4dp"
             android:text="Tarea"
             android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="@+id/task_title_bottom"
+            app:layout_constraintBottom_toBottomOf="@+id/floating_button_task"
             app:layout_constraintEnd_toStartOf="@+id/titles_floating_button_right"
             app:layout_constraintStart_toStartOf="@+id/titles_floating_buttons_left"
-            app:layout_constraintTop_toTopOf="@+id/task_title_top" />
+            app:layout_constraintTop_toTopOf="@+id/floating_button_task" />
+
 
         <LinearLayout
             android:layout_width="0dp"
@@ -470,7 +472,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.31" />
+            app:layout_constraintGuide_percent="0.33" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/bottom_fragment_home"

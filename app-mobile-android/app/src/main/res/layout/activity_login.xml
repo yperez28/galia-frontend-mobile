@@ -14,9 +14,9 @@
         android:layout_height="0dp"
         android:contentDescription="@string/top_pink_vector"
         android:src="@drawable/ic_top_vector_login"
-        app:layout_constraintBottom_toBottomOf="@id/bottom_top_vector_login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_top_vector_login"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -112,6 +112,7 @@
         android:text="@string/log_in"
         android:textSize="17sp"
         android:textAllCaps="false"
+        android:textSize="17sp"
         android:textColor="@color/backgroundColor"
         app:layout_constraintBottom_toTopOf="@+id/bottom_login_button"
         app:layout_constraintLeft_toRightOf="@id/login_button_left"
@@ -242,6 +243,13 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.8659" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/bottom_bottom_vector"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="1" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/top_top_vector_login"

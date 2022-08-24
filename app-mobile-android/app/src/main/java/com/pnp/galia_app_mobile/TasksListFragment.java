@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
@@ -48,15 +49,17 @@ public class TasksListFragment extends Fragment {
 
         recyclerViewTaskToDo = myView.findViewById(R.id.task_todo_recycler);
         ImageView arrowTaskToDo = myView.findViewById(R.id.arrow_task_to_do);
-        LinearLayout hiddenViewTaskToDo = myView.findViewById(R.id.hidden_task_to_do_layout);
+        RelativeLayout hiddenViewTaskToDo = myView.findViewById(R.id.hidden_task_to_do_layout);
+        RelativeLayout taskToDoLayout = myView.findViewById(R.id.task_to_do_layout);
         CardView cardViewTaskToDo = myView.findViewById(R.id.cardview_task_to_do);
 
         recyclerViewTaskComplete = myView.findViewById(R.id.task_complete_recycler);
         ImageView arrowTaskComplete = myView.findViewById(R.id.arrow_task_complete);
-        LinearLayout hiddenViewTaskComplete = myView.findViewById(R.id.hidden_task_complete_layout);
+        RelativeLayout hiddenViewTaskComplete = myView.findViewById(R.id.hidden_task_complete_layout);
+        RelativeLayout taskCompleteLayout = myView.findViewById(R.id.task_complete_layout);
         CardView cardViewTaskComplete = myView.findViewById(R.id.cardview_task_complete);
 
-        arrowTaskToDo.setOnClickListener(new View.OnClickListener() {
+        taskToDoLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (hiddenViewTaskToDo.getVisibility() == View.VISIBLE) {
@@ -74,7 +77,7 @@ public class TasksListFragment extends Fragment {
             }
         });
 
-        arrowTaskComplete.setOnClickListener(new View.OnClickListener() {
+        taskCompleteLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (hiddenViewTaskComplete.getVisibility() == View.VISIBLE) {

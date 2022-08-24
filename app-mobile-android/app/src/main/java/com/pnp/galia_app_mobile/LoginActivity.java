@@ -27,6 +27,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void openHomepage(View view) {
+        //Intent intent = new Intent(this, HomeActivity.class);
+        //startActivity(intent);
         if(editTextUser.getText().toString().equals("navigator")) {
             if(editTextPassword.getText().toString().equals("123456")) {
                 Intent intent = new Intent(this, HomeActivity.class);
