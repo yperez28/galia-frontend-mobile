@@ -110,6 +110,7 @@
         android:background="@drawable/ic_rounded_login_button"
         android:fontFamily="@font/inter_regular"
         android:text="@string/log_in"
+        android:textSize="17sp"
         android:textAllCaps="false"
         android:textSize="17sp"
         android:textColor="@color/backgroundColor"

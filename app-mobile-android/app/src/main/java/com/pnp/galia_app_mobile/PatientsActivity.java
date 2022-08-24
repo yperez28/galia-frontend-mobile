@@ -1,12 +1,15 @@
 package com.pnp.galia_app_mobile;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -16,6 +19,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -40,24 +44,59 @@ public class PatientsActivity extends AppCompatActivity
     private TextView text_view_tracing;
     private TextView text_view_patient;
     private TextView text_view_task;
+    private TextView notificationCounter;
+    private TextView readNotifications;
 
     private ImageView homeIcon;
     private ImageView notificationsIcon;
+    private ImageView filterIcon;
+    private ImageView provinceClose;
+    private ImageView cancerClose;
+    private ImageView treatmentClose;
+    private ImageView genderClose;
 
     private boolean clicked = false;
     private boolean notificationOpen = false;
+    private boolean isFilterClicked = false;
+    private boolean isProvinceSelected = false;
+    private boolean isCancerSelected = false;
+    private boolean isTreatmentSelected = false;
+    private boolean isGenderSelected = false;
+
+    private int notificationNumberCounter = 0;
 
     private DrawerLayout drawerLayout;
+
     private RelativeLayout toolBarIcons;
+    private RelativeLayout filterSelector;
+
+    private LinearLayout provinceFilterSelected;
+    private LinearLayout cancerTypeFilterSelected;
+    private LinearLayout treatmentFilterSelected;
+    private LinearLayout genderFilterSelected;
+    private LinearLayout container;
+
+    private CheckBox provinceFilter;
+    private CheckBox cancerTypeFilter;
+    private CheckBox treatmentFilter;
+    private CheckBox genderFilter;
+
     private NavigationView navigationView;
-    private TextView notificationCounter;
-    private int notificationNumberCounter = 0;
+
     private RecyclerView notificationRecycler;
-    private TextView readNotifications;
+
+    private CardView filterButton;
 
     private Toolbar toolbar;
 
     private Notification[] notificationList;
+    private Patient[] patientList = new Patient[] {new Patient("Marina Gómez Muñoz", "Activa", "102340578", "F2020-0201", "14/08/2022", "14/08/2022"), new Patient("Maria Gutierrez Lopez", "Activa", "103330578", "F2020-0202", "17/08/2022", "18/08/2022"),
+            new Patient("Sandra Gómez Muñoz", "Activa", "502580586", "F2020-0203", "14/07/2022", "14/08/2022"), new Patient("Karla Gómez Muñoz", "Activa", "102340555", "F2020-0205", "14/08/2021", "14/09/2022"),
+            new Patient("Alondra Gómez Muñoz", "Activa", "303340378", "F2020-0206", "04/02/2022", "06/05/2022"), new Patient("Jimena Gomez Gomez", "Activa", "102470222", "F2020-0901", "30/10/2017", "28/02/2019"),
+            new Patient("Luciana Torres Torres", "Activa", "305590471", "F2021-0201", "23/01/2015", "26/02/2016"),new Patient("Ivannia Alfaro Alfaro", "Activa", "701590852", "F2021-0303", "17/02/2018", "31/12/2021"),
+            new Patient("Sofía Gómez Gómez", "Inactiva", "305590647", "F2020-0209", "26/08/2020", "30/08/2020"), new Patient("Genesis López Muñoz", "Inactiva", "509890475", "F2020-0301", "24/01/2019", "14/08/2022"),
+            new Patient("Felicia Ulloa Muñoz", "Inactiva", "122340578", "F2020-0222", "22/03/2022", "22/03/2022"),new Patient("Karina Madriz Madriz", "Inactiva", "603350669", "F2020-0211", "25/06/2022", "25/06/2022"),
+            new Patient("Guadalupe Jimenez Mendez", "Inactiva", "405260147", "F2020-0701", "07/02/2018", "10/09/2020")};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,6 +147,49 @@ public class PatientsActivity extends AppCompatActivity
         notificationCounter.setText(setNotificationIcons());
         notificationRecycler = findViewById(R.id.notifications_recycler);
         readNotifications = findViewById(R.id.read_notifications);
+        filterIcon = findViewById(R.id.filter_patients_icon);
+
+        filterSelector = findViewById(R.id.filter_selector);
+        container = findViewById(R.id.container);
+
+        provinceFilterSelected = findViewById(R.id.province_filter_selected);
+        cancerTypeFilterSelected = findViewById(R.id.cancer_type_filter_selected);
+        treatmentFilterSelected = findViewById(R.id.treatment_filter_selected);
+        genderFilterSelected = findViewById(R.id.gender_filter_selected);
+
+        provinceFilter = findViewById(R.id.province_selector);
+        cancerTypeFilter = findViewById(R.id.cancer_selector);
+        treatmentFilter = findViewById(R.id.treatment_selector);
+        genderFilter = findViewById(R.id.gender_selector);
+
+        provinceClose = findViewById(R.id.province_close_button);
+        cancerClose = findViewById(R.id.cancer_close_button);
+        treatmentClose = findViewById(R.id.treatment_close_button);
+        genderClose = findViewById(R.id.gender_close_button);
+
+        filterButton = findViewById(R.id.filter_patients);
+        filterButton.setOnClickListener(view -> {
+            if (isFilterClicked) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    filterButton.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#FDFDFD")));
+                    filterIcon.setImageTintList(ColorStateList.valueOf(Color.parseColor("#828282")));
+                }
+                filterSelector.setVisibility(View.INVISIBLE);
+            } else {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    filterButton.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#5D5FEF")));
+                    filterIcon.setImageTintList(ColorStateList.valueOf(Color.parseColor("#FDFDFD")));
+                }
+                filterSelector.setVisibility(View.VISIBLE);
+            }
+            isFilterClicked = !isFilterClicked;
+        });
+
+        RecyclerView recyclerView = findViewById(R.id.patient_recycler);
+        PatientAdapter patientAdapter = new PatientAdapter(patientList);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setAdapter(patientAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
 
         floating_button_main.setOnClickListener(view -> {
             setVisibility(clicked);
@@ -169,6 +251,74 @@ public class PatientsActivity extends AppCompatActivity
             notificationCounter.setVisibility(View.INVISIBLE);
             notificationsIcon.setSelected(false);
 
+        });
+
+        provinceFilter.setOnClickListener(view -> {
+            if (isProvinceSelected) {
+                provinceFilterSelected.setVisibility(View.GONE);
+            } else {
+                provinceFilterSelected.setVisibility(View.VISIBLE);
+            }
+            isProvinceSelected = !isProvinceSelected;
+        });
+
+        cancerTypeFilter.setOnClickListener(view -> {
+            if (isCancerSelected) {
+                cancerTypeFilterSelected.setVisibility(View.GONE);
+            } else {
+                cancerTypeFilterSelected.setVisibility(View.VISIBLE);
+            }
+            isCancerSelected = !isCancerSelected;
+        });
+
+        treatmentFilter.setOnClickListener(view -> {
+            if (isTreatmentSelected) {
+                treatmentFilterSelected.setVisibility(View.GONE);
+                if (!isGenderSelected) {
+                    container.setVisibility(View.GONE);
+                }
+            } else {
+                treatmentFilterSelected.setVisibility(View.VISIBLE);
+                container.setVisibility(View.VISIBLE);
+            }
+            isTreatmentSelected = !isTreatmentSelected;
+        });
+
+        genderFilter.setOnClickListener(view -> {
+            if (isGenderSelected) {
+                genderFilterSelected.setVisibility(View.GONE);
+                if (!isTreatmentSelected) {
+                    container.setVisibility(View.GONE);
+                }
+            } else {
+                genderFilterSelected.setVisibility(View.VISIBLE);
+                container.setVisibility(View.VISIBLE);
+            }
+            isGenderSelected = !isGenderSelected;
+        });
+
+        provinceClose.setOnClickListener(view -> {
+            isProvinceSelected = false;
+            provinceFilter.setChecked(false);
+            provinceFilterSelected.setVisibility(View.GONE);
+        });
+
+        cancerClose.setOnClickListener(view -> {
+            isCancerSelected = false;
+            cancerTypeFilter.setChecked(false);
+            cancerTypeFilterSelected.setVisibility(View.GONE);
+        });
+
+        treatmentClose.setOnClickListener(view -> {
+            isTreatmentSelected = false;
+            treatmentFilter.setChecked(false);
+            treatmentFilterSelected.setVisibility(View.GONE);
+        });
+
+        genderClose.setOnClickListener(view -> {
+            isGenderSelected = false;
+            genderFilter.setChecked(false);
+            genderFilterSelected.setVisibility(View.GONE);
         });
     }
 
