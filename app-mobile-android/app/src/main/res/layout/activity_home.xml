@@ -40,15 +40,16 @@
             app:layout_constraintRight_toLeftOf="@id/right_screen_margin"
             app:layout_constraintTop_toBottomOf="@id/top_cardview_tasks">
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/btn_tasks"
-                    android:layout_width="165dp"
+                    android:layout_width="185dp"
                     android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
                     android:background="@drawable/ic_task_barrier_selected"
                     android:fontFamily="@font/inter_bold"
                     android:text="@string/task"
@@ -58,8 +59,9 @@
 
                 <Button
                     android:id="@+id/btn_barriers"
-                    android:layout_width="165dp"
+                    android:layout_width="185dp"
                     android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
                     android:background="@android:color/transparent"
                     android:fontFamily="@font/inter_bold"
                     android:text="@string/barriers"
@@ -67,7 +69,7 @@
                     android:textAllCaps="false"
                     android:textColor="@color/gris_5"
                     android:textSize="14sp" />
-            </LinearLayout>
+            </RelativeLayout>
 
         </androidx.cardview.widget.CardView>
 
@@ -75,7 +77,7 @@
             android:id="@+id/mode_cardview"
             android:visibility="visible"
             android:layout_width="0dp"
-            android:layout_height="25dp"
+            android:layout_height="29dp"
             app:cardBackgroundColor="@color/backgroundColor"
             app:cardCornerRadius="21.51dp"
             app:cardElevation="4dp"
@@ -138,8 +140,8 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cardview_barriers"
             android:layout_width="0dp"
+            android:layout_height="29dp"
             android:visibility="invisible"
-            android:layout_height="25dp"
             app:cardBackgroundColor="@color/backgroundColor"
             app:cardCornerRadius="21.51dp"
             app:cardElevation="4dp"
@@ -147,7 +149,6 @@
             app:layout_constraintStart_toEndOf="@id/left_toolbar"
             app:layout_constraintTop_toBottomOf="@+id/top_cardview_list"
             app:layout_constraintBottom_toTopOf="@id/bottom_cardview_list">
-
 
             <LinearLayout
                 android:layout_width="match_parent"

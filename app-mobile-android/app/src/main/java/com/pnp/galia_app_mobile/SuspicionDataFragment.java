@@ -148,7 +148,6 @@ public class SuspicionDataFragment extends Fragment {
         save.setOnClickListener(view12 -> {
             FragmentManager fragmentManager = getParentFragmentManager();
             Fragment fragment = fragmentManager.findFragmentById(R.id.patient_data_fragment);
-            successfullySaved = !successfullySaved;
             if (successfullySaved) {
                 popUpMessage = fragment.getView().getRootView().findViewById(R.id.popup_success);
             } else {
